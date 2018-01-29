@@ -105,7 +105,9 @@ app.use(function (request, response, next) {
 
 
 app.use('/public', express.static('public'));
-app.use('/index', require('./controllers/index.route'));
+app.use('/', require('./controllers/index.route'));
+app.use('/clientes', require('./controllers/clientes.route'));
+app.use('/veiculos', require('./controllers/veiculos.route'));
 
 //app.use('/users', require('./controllers/user.route'));
 
