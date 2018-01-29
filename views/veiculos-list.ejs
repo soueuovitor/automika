@@ -1,60 +1,66 @@
 <% include partials/header%>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Listagem <small>dos Veiculos</small></h3>
-              </div>
-			</div>
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
             <div class="row">
-              <div class="col-md-12 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Veiculos</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <table class="table table-striped" id='tabela'>
-                      <thead>
-                        <tr>
-                          <th>Matricula</th>
-                          <th>Nome</th>
-                          <th>Chassi</th>
-                          <th>Km</th>
-                          <th>Cilindrada</th>
-                          <th>CV</th>
-						  <th>Valor_Compra</th>
-						  <th>Valor_venda</th>
-						  <th>Despesas</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% for (var c of data) { %>
-                          <tr>
-                            <td><a href="/veiculos/<%= c.matricula %>"><%= c.matricula %></a></td>
-                            <td><%= c.nome %></td>
-                            <td><%= c.chassi %></td>
-                            <td><%= c.km %></td>
-                            <td><%= c.cilindrada %></td>
-							<td><%= c.cv %></td>
-							<td><%= c.valor_compra%></td>
-							<td><%= c.valor_venda%></td>
-							<td><%= c.despesas%></td>
-                          </tr>
-                          <%} %>
-                      </tbody>
-                    </table>
-                    <a href="/veiculos/createveiculos"><button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button></a>
-                  </div>
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Listagem <span>dos Veiculos</span></h1>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-		   </div>
-        </div>
-        <!-- /page content -->
+            <!-- /# row -->
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6 col-xs-12">
+                      <div class="x_panel">
+                        
+                        <div class="x_content">
+                          <table class="table table-striped" id='tabela'>
+                            <thead>
+                              <tr>
+                                <th>Matricula</th>
+                                <th>Nome</th>
+                                <th>Chassi</th>
+                                <th>Km</th>
+                                <th>Cilindrada</th>
+                                <th>CV</th>
+                    <th>Valor_Compra</th>
+                    <th>Valor_venda</th>
+                    <th>Despesas</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for (var c of data) { %>
+                                <tr>
+                                  <td><a href="/veiculos/<%= c.matricula %>"><%= c.matricula %></a></td>
+                                  <td><%= c.nome %></td>
+                                  <td><%= c.chassi %></td>
+                                  <td><%= c.km %></td>
+                                  <td><%= c.cilindrada %></td>
+                    <td><%= c.cv %></td>
+                    <td><%= c.valor_compra%></td>
+                    <td><%= c.valor_venda%></td>
+                    <td><%= c.despesas%></td>
+                                </tr>
+                                <%} %>
+                            </tbody>
+                          </table>
+                          <a href="/veiculos/createveiculos"><button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+             </div>
+              </div>
+            <!-- /# row -->
+        </section>
+    </div>
+</div>
+</div>
+
+
 <% include partials/footer%>
