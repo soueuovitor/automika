@@ -75,10 +75,10 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 global.connection = mysql.createConnection({
-	host: 'webitcloud.net',
-	user: 'webitclo_A254',
-	password: 'PW1718A254499',
-	database: 'webitclo_A254'
+	host: '185.206.144.244',
+	user: 'automika',
+	password: 'automika',
+	database: 'automika'
 }).on('enqueue', function (sequence) {
 	if ('Query' === sequence.constructor.name) {
 		console.log(sequence.sql);
