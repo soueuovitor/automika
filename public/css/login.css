@@ -1,0 +1,17 @@
+body {
+    background-image: url("/public/images/logo.jpg");
+
+
+    background-repeat: no-repeat;
+    background-size:50%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+	
+	}
