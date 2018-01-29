@@ -70,28 +70,12 @@
 
 
 
-                  <% if (isAuthenticated) {%>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/bilheteira">Compra</a>
-                      </li>
-                    <li class="nav-item">
-                      <a class="nav-link js-scroll-trigger" href="/logout">logout</a>
-                    </li>
-                    <% if (user.type === 'admin') {%>
-                      <li role="presentation"><a class="nav-link js-scroll-trigger" href="/info">admin</a></li>
-                      <% } %>
-                    
-                      <% } else { %>
                   
-            <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/login">Login/register</a>
-                  </li>
-                  <%} %>
 
 
                 
                  <!-- ================= Profile ================== -->
-               
+                 <% if (isAuthenticated) {%>
                 <li class="header-icon dib"><span class="user-avatar"><%= users.nome %> <i class="ti-angle-down f-s-10"></i></span>
                   <div class="drop-down dropdown-profile">
                     <div class="dropdown-content-body">
@@ -102,6 +86,7 @@
                     </div>
                   </div>
                 </li>
+                <%} %>
               </ul>
             </div>
           </div>

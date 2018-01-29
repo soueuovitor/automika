@@ -28,7 +28,7 @@ global.secure = function (type) {
 	return function (request, response, next) {
 		if (request.isAuthenticated()) {
 			if (type) {
-				if (type === request.user.type) {
+				if (type === request.users.type) {
 					return next();
 				} else {
 					response.redirect('/');
@@ -97,7 +97,7 @@ app.listen(port, function () {
 //Midleware that sets the isAuthenticated variable in all views
 
 app.use(function (request, response, next) {
-	response.locals.user = request.user;
+	response.locals.users = request.users;
 	response.locals.isAuthenticated = request.isAuthenticated();
 	next();
 });
