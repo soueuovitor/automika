@@ -108,7 +108,8 @@ app.use('/public', express.static('public'));
 app.use('/', require('./controllers/index.route'));
 app.use('/clientes', require('./controllers/clientes.route'));
 app.use('/veiculos', require('./controllers/veiculos.route'));
-
-//app.use('/users', require('./controllers/user.route'));
+app.use('/login', require('./controllers/login.route'));
+app.use('/logout', require('./controllers/logout.route'));
+app.use('/users', require('./controllers/user.route'));
 
 //new
