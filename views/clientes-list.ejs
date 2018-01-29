@@ -1,4 +1,4 @@
-<% include partials/header-backend %>
+<% include partials/header %>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -31,7 +31,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% for (var c of data) { %>
+                        <% for (var c of clientes ) { %>
                           <tr>
                             <td><a href="/clientes/<%= c.idclientes %>"><%= c.nome %></a></td>
                             <td><%= c.email %></td>
@@ -50,4 +50,4 @@
 		   </div>
         </div>
         <!-- /page content -->
-<% include partials/footer-backend %>
+<% include partials/footer %>
