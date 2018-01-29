@@ -8,32 +8,75 @@
                     <div class="page-header">
                         <div class="page-title">
                             <h1>Listagem <span>dos Veiculos</span></h1>
+                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
+            <select id="choose" class="chooseStyle" style="float:right;">
+                <option value="main-cards" selected>Cartão</option>
+                <option value="main-list">Lista</option>
+
+            </select>
+
             <!-- /# row -->
-            <section id="main-content">
+      
+
+            <script>
+                function switchDiv() {
+    
+                    $('#choose').change(function () {
+                        var chosen = $('#choose').val();
+                        if (chosen === 'main-list') {
+                            $('#main-cards').slideUp();
+                            $('#main-list').slideDown();
+                        } else {
+    
+                            $('#main-list').slideUp();
+                            $('#main-cards').slideDown();
+                        }
+                    })
+    
+                }
+    
+    
+    
+                window.onload = switchDiv;
+    
+
+            </script>
+    
+            <section id="main-cards">
                 <div class="row">
+                    <% for (var c of data) { %>
                     <div class="col-md-12 col-sm-6 col-xs-12">
                     <div class="card" style="width: 20rem;">
                             <img class="card-img-top" src="./public/bmw.jpg" alt="Card image cap">
                             <div class="card-block">
-                              <h4 class="card-title">Card title</h4>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <h4 class="card-title"> <%= c.marca %> </h4>
+                              <p class="card-text"> <%= c.modelo  %> </p>
                             </div>
                             <ul class="list-group list-group-flush">
-                              <li class="list-group-item">Cras justo odio</li>
-                              <li class="list-group-item">Dapibus ac facilisis in</li>
-                              <li class="list-group-item">Vestibulum at eros</li>
+                              <li class="list-group-item"><%= c.km %> Km </li>
+                              <li class="list-group-item"><%= c.cilindrada %> cc</li>
+                              <li class="list-group-item" > <%= c.cv %> cavalos</li>
                             </ul>
                             <div class="card-block">
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
+                                <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                <h4 style="padding-top: 10px;display: inline-flex; float:right"><%= c.valor_venda %> </h4>
                             </div>
                           </div>
                         </div>
+                        <% } %>
                       </div>
+      
+                  </section>
+
+
+
+
+                  <section id="main-list" style="display:none">
                 <div class="row">
                     <div class="col-md-12 col-sm-6 col-xs-12">
                       <div class="x_panel">
@@ -74,6 +117,7 @@
                       </div>
                     </div>
                   </div>
+                  </section>
              </div>
               </div>
             <!-- /# row -->
