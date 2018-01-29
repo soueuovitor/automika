@@ -9,7 +9,7 @@ module.exports = {
 	},
 
 	read(username, callback) {
-		var sql = "SELECT * from clientes where username=?";
+		var sql = "SELECT * from clientes where idclientes=?";
 		global.connection.query(sql, [username], function (error, rows, fields) {
 			if (error) throw error;
 			callback(rows[0]);
