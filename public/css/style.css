@@ -282,6 +282,11 @@ span.badge {
 .modal-content {
   border-radius: 3px;
 }
+.product_view .modal-dialog{
+  margin: 5px auto;
+  max-width: 500px; width: 70%;
+}
+
 .timeline {
   list-style: none;
   padding: 0 0 8px;
