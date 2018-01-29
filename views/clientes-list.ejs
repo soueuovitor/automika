@@ -1,53 +1,79 @@
 <% include partials/header %>
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Listagem <small>dos Clientes</small></h3>
-              </div>
-			</div>
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
             <div class="row">
-              <div class="col-md-12 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Clientes</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <table class="table table-striped" id='tabela'>
-                      <thead>
-                        <tr>
-                          <th>Nome</th>
-                          <th>Email</th>
-                          <th>Morada</th>
-                          <th>telemovel</th>
-                          <th>Email</th>
-                          <th>NIF</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% for (var c of clientes ) { %>
-                          <tr>
-                            <td><a href="/clientes/<%= c.idclientes %>"><%= c.nome %></a></td>
-                            <td><%= c.email %></td>
-                            <td><%= c.morada %></td>
-                            <td><%= c.telemovel %></td>
-                            <td><%= c.nif %></td>
-                          </tr>
-                          <%} %>
-                      </tbody>
-                    </table>
-                    <a href="/clientes/createclientes"><button type="submit" class="btn btn-success" id="toggler">Adicionar Cliente</button></a>
-                  </div>
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Listagem <span>dos Clientes</span></h1>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-		   </div>
-        </div>
-        <!-- /page content -->
+            <!-- /# row -->
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6 col-xs-12">
+                      <div class="x_panel">
+                        <div class="x_content">
+                          <table class="table table-striped" id='tabela'>
+                            <thead>
+                              <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Morada</th>
+                                <th>telemovel</th>
+                                <th>Email</th>
+                                <th>NIF</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for (var c of clientes ) { %>
+                                <tr>
+                                  <td><a href="/clientes/<%= c.idclientes %>"><%= c.nome %></a></td>
+                                  <td><%= c.email %></td>
+                                  <td><%= c.morada %></td>
+                                  <td><%= c.telemovel %></td>
+                                  <td><%= c.nif %></td>
+                                </tr>
+                                <%} %>
+                            </tbody>
+                          </table>
+                          <a href="/clientes/createclientes"><button type="submit" class="btn btn-success" id="toggler">Adicionar Cliente</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <!-- /# row -->
+        </section>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% include partials/footer %>
