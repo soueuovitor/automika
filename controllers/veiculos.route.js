@@ -50,7 +50,7 @@ router.get('/:username', function(request, response) {
 
 
 
-router.post('/create' , upload.array('logo', 4) ,function (request, response) {
+router.post('/create'  ,function (request, response) {
 	var form = new formidable.IncomingForm();
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
