@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const model = require('../models/veiculos.model');
+const fs = require ('fs');
+const formidable = require('formidable');
+
 
 router.get('/', function(request, response){
 	//console.log(request.user);
@@ -44,5 +47,67 @@ router.get('/:username', function(request, response) {
 });
 
 
+
+
+
+router.post('/create'  ,function (request, response) {
+	var form = new formidable.IncomingForm();
+	var fields = request.fields;
+    form.parse(request, function (err, fields, files) {
+    
+      var oldpath = files.logo.path;
+      var newpath = './public/img/' + fields.chassi+'.png';
+
+      fs.rename(oldpath, newpath, function (err) {
+
+
+	
+	
+
+		
+		
+
+	
+		var data = {
+			
+			'matricula':fields.matricula,
+		
+			'chassi': fields.chassi,
+			
+			'ano' : fields.ano,
+
+			'km' : fields.km,
+
+			'marca' : fields.marca,
+
+			'modelo' : fields.modelo,
+
+			'cilindrada' : fields.cilindrada, 
+
+			'valor_compra': fields.valor_compra,
+
+			'valor_venda' : fields.valor_venda,
+
+			'despesas': fields.despesas,
+
+			'cv' : fields.cv
+		};
+		model.create(data, function () {
+			
+			
+		});
+		response.redirect('/veiculos')
+
+							
+			
+			
+	
+
+});
+
+});
+
+
+});
 
 module.exports = router;

@@ -16,18 +16,18 @@ module.exports = {
 	},	
 
 	create(data, callback) {
-		var sql = "INSERT INTO users (username, name, morada, telemovel, email, nif, password,ativo) VALUES (?,?,?,?,?,?,?,1)"; 
+		var sql = "INSERT INTO users (username, nome, password,ativo) VALUES (?,?,?,?,?,?,?,1)"; 
 		global.connection.query(
-			sql, [data.username, data.name, data.morada, data.telemovel, data.email, data.nif, data.password], function(error, rows, fields) {
+			sql, [data.username, data.nome, data.password], function(error, rows, fields) {
 			if (error) throw error;
 			callback(rows[0]);			
 		});
 	},
 
 	update(username, data, callback) {
-		var sql = "UPDATE users SET name=?, morada=?, telemovel=?, email=?, nif=?, password=? WHERE username=?"; 
+		var sql = "UPDATE users SET nome=?,password=? WHERE username=?"; 
 		global.connection.query(
-			sql, [data.name, data.morada, data.telemovel, data.email, data.nif, data.password, username], function(error, rows, fields) {
+			sql, [data.nome, data.password, username], function(error, rows, fields) {
 			if (error) throw error;
 			callback(rows[0]);			
 		});
