@@ -10,9 +10,9 @@ module.exports = {
 
 
 	create(data, callback) {
-		var sql = "INSERT INTO veiculos (matricula, chassi, marca , km, cilindrada, cv, valor_compra, valor_venda, despesas, ativo, modelo , ano) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+		var sql = "INSERT INTO veiculos (matricula, chassi, marca , km, cilindrada, cv, valor_compra, valor_venda, despesas, ativo, modelo , ano) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		global.connection.query(
-			sql, [data.matricula, data.chassi, data.marca, data.km, data.cilindrada, data.cv, data.valor_compra, data.valor_venda, data.despesas, 1 , data.modelo, data.ano ],
+			sql, [data.matricula, data.chassi, data.marca, data.km, data.cilindrada, data.cv, data.valor_compra, data.valor_venda, data.despesas, 1 , data.modelo, data.ano, data.num_fotos ],
 			function (error, rows, fields) {
 				if (error) throw error;
 				callback(rows[0]);
