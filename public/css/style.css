@@ -282,6 +282,12 @@ span.badge {
 .modal-content {
   border-radius: 3px;
 }
+
+.product_view .modal-dialog{
+  margin: 5px auto;
+  max-width: 500px;
+  width: 70%
+}
 .timeline {
   list-style: none;
   padding: 0 0 8px;
@@ -2208,7 +2214,7 @@ a.mail-dropdown {
 .btn-compose:focus,
 .btn-compose.active {
   background: #5873fe;
-  color: #ffffff;
+  color: #cc6565;
 }
 ul.inbox-nav {
   display: inline-block;
@@ -3767,6 +3773,7 @@ h6.h1 {
 .box-shadow {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
+
 /*    Color Mixins
 -------------------*/
 .color-primary,
