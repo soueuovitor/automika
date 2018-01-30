@@ -17,6 +17,7 @@ var nodemailer = require('nodemailer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+const userModel = require('./models/user.model');
 
 
 
@@ -28,7 +29,7 @@ global.secure = function (type) {
 	return function (request, response, next) {
 		if (request.isAuthenticated()) {
 			if (type) {
-				if (type === request.users.type) {
+				if (type === request.user.type) {
 					return next();
 				} else {
 					response.redirect('/');
@@ -60,9 +61,6 @@ app.use(passport.session());
 passport.serializeUser(function (username, callback) {
 	callback(null, username);
 });
-
-
-
 
 passport.deserializeUser(function (username, callback) {
 	userModel.read(username, function (data) {
@@ -96,19 +94,19 @@ app.listen(port, function () {
 
 //Midleware that sets the isAuthenticated variable in all views
 
-app.use(function (request, response, next) {
-	response.locals.users = request.users;
+app.use(function(request, response, next){
+	response.locals.user = request.user;
 	response.locals.isAuthenticated = request.isAuthenticated();
 	next();
 });
 
 
 
+app.use('/', require('./controllers/login.route'));
 app.use('/public', express.static('public'));
-app.use('/', require('./controllers/index.route'));
+app.use('/index', require('./controllers/index.route'));
 app.use('/clientes', require('./controllers/clientes.route'));
 app.use('/veiculos', require('./controllers/veiculos.route'));
-app.use('/login', require('./controllers/login.route'));
 app.use('/logout', require('./controllers/logout.route'));
 app.use('/users', require('./controllers/user.route'));
 

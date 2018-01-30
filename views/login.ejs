@@ -42,7 +42,20 @@
               <br>
               <br>
               <br>
+            <form action="/" method="post">
               <h1>Login </h1>
+
+              <div>
+                <% if (errors.length) { %>  
+                  <div class="alert alert-danger">
+                    <ul>
+                    <% for (var e of errors) { %>
+                      <li><%= e.msg %></li>
+                    <% }%>
+                    </ul>
+                  </div>	
+                <% } %>	
+              </div> 
 			  
               <div>
                 <input type="text" class="form-control" id="username" placeholder="Inserir Username" name="username" required="" />

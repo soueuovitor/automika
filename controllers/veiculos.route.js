@@ -51,17 +51,25 @@ router.get('/:username', function(request, response) {
 
 
 router.post('/create'  ,function (request, response) {
+
 	var form = new formidable.IncomingForm();
+	form.multiples = true;
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
-    
-      var oldpath = files.logo.path;
-      var newpath = './public/img/' + fields.chassi+'.png';
+	var i = 0;
+		for( var c of files.logo){
+			
+			var oldpath = c.path;
+			var newpath = './public/img/' + fields.chassi  +'-'+ i +'.png';
+	  
+			fs.rename(oldpath, newpath, function (err) {
 
-      fs.rename(oldpath, newpath, function (err) {
+			});
+	  i++
+	  
+		  
+		}
 
-
-	
 	
 
 		
@@ -103,7 +111,7 @@ router.post('/create'  ,function (request, response) {
 			
 	
 
-});
+
 
 });
 
