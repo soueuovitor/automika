@@ -26,7 +26,9 @@ router.post('/', function(request, response) {
 		if (areValid) {
 			//Create the login session
 			request.login(request.body.username, function(err) {
+
 				response.redirect('/index');
+				console.log('está')
 			});
 		}else{
 			response.render('login', { errors: [

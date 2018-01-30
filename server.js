@@ -29,7 +29,7 @@ global.secure = function (type) {
 	return function (request, response, next) {
 		if (request.isAuthenticated()) {
 			if (type) {
-				if (type === request.users.type) {
+				if (type === request.user.type) {
 					return next();
 				} else {
 					response.redirect('/');
@@ -94,11 +94,12 @@ app.listen(port, function () {
 
 //Midleware that sets the isAuthenticated variable in all views
 
-app.use(function (request, response, next) {
-	response.locals.users = request.users;
+app.use(function(request, response, next){
+	response.locals.user = request.user;
 	response.locals.isAuthenticated = request.isAuthenticated();
 	next();
 });
+
 
 
 app.use('/', require('./controllers/login.route'));
