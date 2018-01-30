@@ -52,9 +52,11 @@
                 <section id="main-cards">
                     <div class="row">
                         <% for (var c of data) { %>
-                            <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="col-md-4" style="padding-right: 5px;">
                                 <div class="card" style="width: 20rem;">
-                                    <img class="card-img-top" src="./public/bmw.jpg" alt="Card image cap">
+                                    <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
+                                   
+
                                     <div class="card-block">
                                         <h4 class="card-title">
                                             <%= c.marca %>
