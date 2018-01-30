@@ -8,7 +8,6 @@ html {
 }
 
 body {
-
   background: #fff;
   font: 400 12px/1.8 "Open Sans", sans-serif;
   color: #666;
@@ -157,7 +156,7 @@ a,
 
 .main {
   position: relative;
-  background-color: #fff;
+  background-color:#fff;
   z-index: 1;
 }
 
@@ -245,7 +244,7 @@ a,
 .bg-dark-30 .alt-module-subtitle h5,
 .bg-dark-60 .alt-module-subtitle h5,
 .bg-dark-90 .alt-module-subtitle h5 {
-  color: #fff;
+  color:#fff;
 }
 
 .bg-dark {
