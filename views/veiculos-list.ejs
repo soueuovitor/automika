@@ -1,185 +1,219 @@
 <% include partials/header%>
 
-<div class="content-wrap">
-    <div class="main">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8 p-r-0 title-margin-right">
-                    <div class="page-header">
-                        <div class="page-title">
-                            <h1>Listagem <span>dos Veiculos</span></h1>
-                            
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Listagem
+                                    <span>dos Veiculos</span>
+                                </h1>
+
+                            </div>
+
                         </div>
-                        
+                    </div>
+
+                </div>
+
+                <select id="choose" class="chooseStyle" style="float:right;">
+                    <option value="main-cards" selected>Cartão</option>
+                    <option value="main-list">Lista</option>
+
+                </select>
+                <!-- /# row -->
+
+
+                <script>
+                    function switchDiv() {
+
+                        $('#choose').change(function () {
+                            var chosen = $('#choose').val();
+                            if (chosen === 'main-list') {
+                                $('#main-cards').slideUp();
+                                $('#main-list').slideDown();
+                            } else {
+
+                                $('#main-list').slideUp();
+                                $('#main-cards').slideDown();
+                            }
+                        })
+
+                    }
+
+
+
+                    window.onload = switchDiv;
+                </script>
+
+
+                <section id="main-cards">
+                    <div class="row">
+                        <% for (var c of data) { %>
+                            <div class="col-md-12 col-sm-6 col-xs-12">
+                                <div class="card" style="width: 20rem;">
+                                    <img class="card-img-top" src="./public/bmw.jpg" alt="Card image cap">
+                                    <div class="card-block">
+                                        <h4 class="card-title">
+                                            <%= c.marca %>
+                                        </h4>
+                                        <p class="card-text">
+                                            <%= c.modelo  %>
+                                        </p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <%= c.km %> Km </li>
+                                        <li class="list-group-item">
+                                            <%= c.cilindrada %> cc</li>
+                                        <li class="list-group-item">
+                                            <%= c.cv %> cavalos</li>
+                                    </ul>
+                                    <div class="card-block">
+                                        <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                        <h4 style="padding-top: 10px;display: inline-flex; float:right">
+                                            <%= c.valor_venda %>
+                                        </h4>
+                                    </div>
+                                    <li style="width:50%;">
+                                        <span data-toggle="modal" data-target="#<%= c.id %>">
+                                            <i class="fa fa-search"></i>More info</span>
+                                    </li>
+                                </div>
+                            </div>
+                            
+
+        <script>
+            var slideIndex<%= c.id %> = 1;
+            showDivs<%= c.id %>(slideIndex<%= c.id %>);
+
+            function plusDivs<%= c.id %>(n<%= c.id %>) {
+                showDivs<%= c.id %>(slideIndex<%= c.id %> += n<%= c.id %>);
+            }
+
+            function showDivs<%= c.id %>(n<%= c.id %>) {
+                var i<%= c.id %>;
+                var x<%= c.id %> = document.getElementsByClassName("<%= c.id %>");
+                if (n<%= c.id %> > x<%= c.id %>.length) {
+                    slideIndex<%= c.id %> = 1
+                }
+                if (n<%= c.id %> < 1) {
+                    slideIndex<%= c.id %> = x<%= c.id %>.length
+                }
+                for (i<%= c.id %> = 0; i<%= c.id %> < x<%= c.id %>.length; i<%= c.id %>++) {
+                    x<%= c.id %>[i<%= c.id %>].style.display = "none";
+                }
+                x<%= c.id %>[slideIndex<%= c.id %> - 1].style.display = "block";
+            }
+        </script>
+
+
+
+
+        <div class="modal fade product_view " id="<%= c.id %>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+
+
+                        <div class="w3-content w3-display-container">
+                            <img class="<%= c.id %>" src="./public/bmw.jpg" style="width:100%">
+                            <img class="<%= c.id %>" src="./public/images/logo.jpg" style="width:100%">
+                            <img class="<%= c.id %>" src="./public/images/img_mountains_wide.jpg" style="width:100%">
+
+                            <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
+                            <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
+                        </div>
+
+
                     </div>
                 </div>
-   
             </div>
-       
-            <select id="choose" class="chooseStyle" style="float:right;">
-                <option value="main-cards" selected>Cartão</option>
-                <option value="main-list">Lista</option>
 
-            </select>
-            <!-- /# row -->
-      
-
-            <script>
-                function switchDiv() {
-    
-                    $('#choose').change(function () {
-                        var chosen = $('#choose').val();
-                        if (chosen === 'main-list') {
-                            $('#main-cards').slideUp();
-                            $('#main-list').slideDown();
-                        } else {
-    
-                            $('#main-list').slideUp();
-                            $('#main-cards').slideDown();
-                        }
-                    })
-    
-                }
-    
-    
-    
-                window.onload = switchDiv;
-    
-
-
-
-            </script>
-            
-    
-            <section id="main-cards">
-                <div class="row">
-                    <% for (var c of data) { %>
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                    <div class="card" style="width: 20rem;">
-                            <img class="card-img-top" src="./public/bmw.jpg" alt="Card image cap">
-                            <div class="card-block">
-                              <h4 class="card-title"> <%= c.marca %> </h4>
-                              <p class="card-text"> <%= c.modelo  %> </p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item"><%= c.km %> Km </li>
-                              <li class="list-group-item"><%= c.cilindrada %> cc</li>
-                              <li class="list-group-item" > <%= c.cv %> cavalos</li>
-                            </ul>
-                            <div class="card-block">
-                                <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                                <h4 style="padding-top: 10px;display: inline-flex; float:right"><%= c.valor_venda %> </h4>
-                            </div>
-                            <li style="width:50%;"> <span data-toggle="modal" data-target="#<%= c.matricula %>"><i class="fa fa-search"></i>More info</span></li>
-                          </div>
-                        </div>
-                        <% } %>
-                      </div>
-      
-                  </section>
-
-
-
-
-                  <section id="main-list" style="display:none">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                      <div class="x_panel">
-                        
-                        <div class="x_content">
-                          <table class="table table-striped" id='tabela'>
-                            <thead>
-                              <tr>
-                                <th>Matricula</th>
-                                <th>Nome</th>
-                                <th>Chassi</th>
-                                <th>Km</th>
-                                <th>Cilindrada</th>
-                                <th>CV</th>
-                    <th>Valor_Compra</th>
-                    <th>Valor_venda</th>
-                    <th>Despesas</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <% for (var c of data) { %>
-                                <tr>
-                                  <td><a href="/veiculos/<%= c.matricula %>"><%= c.matricula %></a></td>
-                                  <td><%= c.nome %></td>
-                                  <td><%= c.chassi %></td>
-                                  <td><%= c.km %></td>
-                                  <td><%= c.cilindrada %></td>
-                    <td><%= c.cv %></td>
-                    <td><%= c.valor_compra%></td>
-                    <td><%= c.valor_venda%></td>
-                    <td><%= c.despesas%></td>
-                                </tr>
-                                <%} %>
-                            </tbody>
-                          </table>
-                          <a href="/veiculos/createveiculos"><button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </section>
-             </div>
-              </div>
-            <!-- /# row -->
-        </section>
-     
-        
-
-        <% for (var c of data) { %>
-<script>
-                var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("<%= c.matricula %>");
-  console.log(x);
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-
-</script>
-
-
-
-
-
-    <div class="modal fade product_view " id="<%= c.matricula %>">
-        <div class="modal-dialog">
-           <div class="modal-content">
-            
-            <div class="modal-body">
-                
-                  
-                <div class="w3-content w3-display-container">
-                    <img class="<%= c.matricula %>" src="./public/bmw.jpg" style="width:100%">
-                    <img class="<%= c.matricula %>" src="./public/images/logo.jpg" style="width:100%">
-                    <img class="<%= c.matricula %>" src="./public/images/img_mountains_wide.jpg" style="width:100%">
-                  
-                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                  </div>
-        
-            
-          </div>
         </div>
-    </div>		
-    <% } %>
-    </div>
-</div>
-</div>
+                            <% } %>
+                    </div>
 
-<% include partials/footer%>
+                </section>
+
+
+
+
+                <section id="main-list" style="display:none">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="x_panel">
+
+                                <div class="x_content">
+                                    <table class="table table-striped" id='tabela'>
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome</th>
+                                                <th>Chassi</th>
+                                                <th>Km</th>
+                                                <th>Cilindrada</th>
+                                                <th>CV</th>
+                                                <th>Valor_Compra</th>
+                                                <th>Valor_venda</th>
+                                                <th>Despesas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for (var c of data) { %>
+                                                <tr>
+                                                    <td>
+                                                        <a href="/veiculos/<%= c.matricula %>">
+                                                            <%= c.matricula %>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.nome %>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.chassi %>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.km %>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.cilindrada %>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.cv %>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.valor_compra%>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.valor_venda%>
+                                                    </td>
+                                                    <td>
+                                                        <%= c.despesas%>
+                                                    </td>
+                                                </tr>
+                                                <%} %>
+                                        </tbody>
+                                    </table>
+                                    <a href="/veiculos/createveiculos">
+                                        <button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- /# row -->
+        </section>
+
+
+
+    </div>
+    </div>
+
+    <% include partials/footer%>
