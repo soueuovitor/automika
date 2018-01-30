@@ -8,6 +8,13 @@ module.exports = {
 		});
 	},
 
+	dropdown(callback) {
+		var sql = 'SELECT matricula from veiculos';
+		global.connection.query(sql, function(error, rows, fields){
+			if (error) throw error;
+			callback(rows);
+		});
+	},
 
 	create(data, callback) {
 		var sql = "INSERT INTO veiculos (matricula, chassi, marca , km, cilindrada, cv, valor_compra, valor_venda, despesas, ativo, modelo , ano) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
