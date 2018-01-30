@@ -122,13 +122,45 @@
 
 
                         <div class="w3-content w3-display-container">
-                            <img class="<%= c.id %>" src="./public/bmw.jpg" style="width:100%">
-                            <img class="<%= c.id %>" src="./public/images/logo.jpg" style="width:100%; display:none;">
-                            <img class="<%= c.id %>" src="./public/images/img_mountains_wide.jpg" style="width:100%; display:none;">
+                            <% i = 0 %>
+                           <% for (i = 0; i < c.numero_fotos; i++ ) { %>
+                            <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
+                            <% } %>
 
                             <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
                             <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
                         </div>
+                        
+                    </br>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    <%= c.marca %>
+                                </h4>
+                                <p class="card-text">
+                                    <%= c.modelo  %>
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <%= c.km %> Km </li>
+                                <li class="list-group-item">
+                                    <%= c.cilindrada %> cc</li>
+                                <li class="list-group-item">
+                                    <%= c.cv %> cavalos</li>
+                            </ul>
+                            <div class="card-block">
+                                <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                <h4 style="padding-top: 10px;display: inline-flex; float:right">
+                                    <%= c.valor_venda %>
+                                </h4>
+                            </div>
+                            <li style="width:50%;">
+                                <span data-toggle="modal" data-target="#<%= c.id %>">
+                                    
+                            </li>
+
+                           
+                       
 
 
                     </div>

@@ -57,6 +57,7 @@ router.post('/create'  ,function (request, response) {
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
 	var i = 0;
+	var num_fotos = files.logo.length;
 		for( var c of files.logo){
 			
 			var oldpath = c.path;
@@ -98,7 +99,9 @@ router.post('/create'  ,function (request, response) {
 
 			'despesas': fields.despesas,
 
-			'cv' : fields.cv
+			'cv' : fields.cv,
+			
+			'num_fotos' : num_fotos
 		};
 		model.create(data, function () {
 			
