@@ -8,15 +8,6 @@ module.exports = {
 		});
 	},
 
-	read(username, callback) {
-		var sql = "SELECT * from clientes where username=?";
-		global.connection.query(sql, [username], function (error, rows, fields) {
-			if (error) throw error;
-			callback(rows[0]);
-		});
-	},
-
-
 
 	create(data, callback) {
 		var sql = "INSERT INTO veiculos (matricula, chassi, marca , km, cilindrada, cv, valor_compra, valor_venda, despesas, ativo, modelo , ano) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -36,7 +27,7 @@ module.exports = {
 
 
 	remove(username, callback) {
-		var sql = "DELETE from clientes WHERE username=?";
+		var sql = "DELETE from clientes WHERE idcliente=?";
 		global.connection.query(sql, [username], function (error, rows, fields) {
 			if (error) throw error;
 			callback(rows);
