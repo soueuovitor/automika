@@ -87,7 +87,7 @@
 
         <script>
             var slideIndex<%= c.id %> = 1;
-            showDivs<%= c.id %>(slideIndex<%= c.id %>);
+            showDivs<%= c.id %>(slideIndex<%= c.id %>.style.display = "block");
 
             function plusDivs<%= c.id %>(n<%= c.id %>) {
                 showDivs<%= c.id %>(slideIndex<%= c.id %> += n<%= c.id %>);
@@ -96,8 +96,10 @@
             function showDivs<%= c.id %>(n<%= c.id %>) {
                 var i<%= c.id %>;
                 var x<%= c.id %> = document.getElementsByClassName("<%= c.id %>");
+                
                 if (n<%= c.id %> > x<%= c.id %>.length) {
                     slideIndex<%= c.id %> = 1
+                    
                 }
                 if (n<%= c.id %> < 1) {
                     slideIndex<%= c.id %> = x<%= c.id %>.length
@@ -121,8 +123,8 @@
 
                         <div class="w3-content w3-display-container">
                             <img class="<%= c.id %>" src="./public/bmw.jpg" style="width:100%">
-                            <img class="<%= c.id %>" src="./public/images/logo.jpg" style="width:100%">
-                            <img class="<%= c.id %>" src="./public/images/img_mountains_wide.jpg" style="width:100%">
+                            <img class="<%= c.id %>" src="./public/images/logo.jpg" style="width:100%; display:none;">
+                            <img class="<%= c.id %>" src="./public/images/img_mountains_wide.jpg" style="width:100%; display:none;">
 
                             <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
                             <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
