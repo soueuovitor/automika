@@ -53,12 +53,21 @@
                       <span class="section">Informação sobre Veiculos</span>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome
-                          <span class="required">*</span>
-                        </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="nome" placeholder="Nome do Veiculo"
-                            name="nome" value="<%= veiculos.nome %>" required="required" type="text">
+                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="marca" placeholder="Marca do Veiculo" name="marca" value="<%= veiculos.marca %>"  required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="modelo" placeholder="Modelo do Veiculo" name="modelo" value="<%= veiculos.modelo %>"  required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ano">Ano <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="ano" placeholder="Ano do Veiculo" name="ano" value="<%= veiculos.ano %>"  required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
