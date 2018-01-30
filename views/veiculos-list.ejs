@@ -40,14 +40,16 @@
                     })
     
                 }
-
-
-
-                
+    
+    
+    
                 window.onload = switchDiv;
     
 
+
+
             </script>
+            
     
             <section id="main-cards">
                 <div class="row">
@@ -125,29 +127,52 @@
               </div>
             <!-- /# row -->
         </section>
-
+     
+        
 
         <% for (var c of data) { %>
+<script>
+                var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("<%= c.matricula %>");
+  console.log(x);
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+</script>
+
+
+
+
+
     <div class="modal fade product_view " id="<%= c.matricula %>">
         <div class="modal-dialog">
            <div class="modal-content">
             
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <img class="card-img-top" src="./public/bmw.jpg" alt="Card image cap">
-                <div class="card-block">
-                  <h4 class="card-title"> <%= c.marca %> </h4>
-                  <p class="card-text"> <%= c.modelo  %> </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><%= c.km %> Km </li>
-                  <li class="list-group-item"><%= c.cilindrada %> cc</li>
-                  <li class="list-group-item" > <%= c.cv %> cavalos</li>
-                </ul>
-                <div class="card-block">
-                    <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                    <h4 style="padding-top: 10px;display: inline-flex; float:right"><%= c.valor_venda %> </h4>
-                </div>
+                
+                  
+                <div class="w3-content w3-display-container">
+                    <img class="<%= c.matricula %>" src="./public/bmw.jpg" style="width:100%">
+                    <img class="<%= c.matricula %>" src="./public/images/logo.jpg" style="width:100%">
+                    <img class="<%= c.matricula %>" src="./public/images/img_mountains_wide.jpg" style="width:100%">
+                  
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                  </div>
+        
             
           </div>
         </div>
@@ -156,6 +181,5 @@
     </div>
 </div>
 </div>
-
 
 <% include partials/footer%>
