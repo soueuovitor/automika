@@ -8,6 +8,14 @@ module.exports = {
 		});
 	},
 
+	dropdown(callback) {
+		var sql = 'SELECT nome from clientes';
+		global.connection.query(sql, function(error, rows, fields){
+			if (error) throw error;
+			callback(rows);
+		});
+	},
+
 	read(username, callback) {
 		var sql = "SELECT * from clientes where idclientes=?";
 		global.connection.query(sql, [username], function (error, rows, fields) {
