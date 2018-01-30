@@ -3,7 +3,7 @@ const router = express.Router();
 const model = require('../models/clientes.model');
 
 
-router.get('/', function(request, response){
+router.get('/' ,global.secure('admin'), function(request, response){
 	//console.log(request.user);
 	//console.log(request.isAuthenticated());
 	model.list(function (clientes) {
@@ -20,7 +20,7 @@ router.get('/', function(request, response){
 })
 });
 
-router.get('/create', function(request, response) {
+router.get('/create' ,global.secure('admin'), function(request, response) {
 	response.set("Content-Type", "text/html");
 	response.render('clientes-item', {
 		isNew: true,
@@ -30,7 +30,7 @@ router.get('/create', function(request, response) {
 });
 
 
-router.get('/:username', function(request, response) {
+router.get('/:username' ,global.secure('admin'), function(request, response) {
 	model.read(request.params.username, function(user) {
 		if (user != undefined) {
 			response.set("Content-Type", "text/html");
