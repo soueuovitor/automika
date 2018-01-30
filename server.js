@@ -109,5 +109,5 @@ app.use('/clientes', require('./controllers/clientes.route'));
 app.use('/veiculos', require('./controllers/veiculos.route'));
 app.use('/logout', require('./controllers/logout.route'));
 app.use('/users', require('./controllers/user.route'));
-
+app.use('/vendas', require('./controllers/vendas.route'));
 //new
