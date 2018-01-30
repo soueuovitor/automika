@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const model = require('../models/veiculos.model');
+const fs = require ('fs');
+const formidable = require('formidable');
+
 
 router.get('/', function(request, response){
 	//console.log(request.user);
@@ -47,48 +50,64 @@ router.get('/:username', function(request, response) {
 
 
 
-router.post('/create' ,  global.secure('admin'), function (request, response) {
+router.post('/create' , upload.array('logo', 4) ,function (request, response) {
 	var form = new formidable.IncomingForm();
-	var path = new Date().getTime();
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
-      var oldpath = files.foto.path;
-      var newpath = './public/img/galeria/' + path+ '.png';
-      fs.rename(oldpath, newpath, function (err) {
-		
-		
-		var type =  files.foto.type;
-		var finalType = type.split('/');
+    
+      var oldpath = files.logo.path;
+      var newpath = './public/img/' + fields.chassi+'.png';
 
-		if (finalType[1] != 'jpeg' && finalType[1] != 'png' && finalType[1] != 'jpg'){
-			response.json({
-				error: "erro na base de dados",
-				status: 500
-			});
-		}else{
+      fs.rename(oldpath, newpath, function (err) {
+
+
+	
+	
+
+		
+		
+
+	
 		var data = {
 			
-			'name':fields.name,
+			'matricula':fields.matricula,
 		
-			'path': path
-		};
-		model.create(data, function () {});
-		response.json({
-			success: "Updated Successfully",
-			status: 200
+			'chassi': fields.chassi,
 			
-		
+			'ano' : fields.ano,
+
+			'km' : fields.km,
+
+			'marca' : fields.marca,
+
+			'modelo' : fields.modelo,
+
+			'cilindrada' : fields.cilindrada, 
+
+			'valor_compra': fields.valor_compra,
+
+			'valor_venda' : fields.valor_venda,
+
+			'despesas': fields.despesas,
+
+			'cv' : fields.cv
+		};
+		model.create(data, function () {
+			
+			
 		});
-	
-	
-	
-	}	
-	})
-})
+		response.redirect('/veiculos')
 
-
+							
+			
+			
 	
+
 });
 
+});
+
+
+});
 
 module.exports = router;
