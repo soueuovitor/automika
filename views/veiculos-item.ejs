@@ -20,162 +20,170 @@
 
 
         <section id="main-content">
-       
 
 
 
 
 
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
+
+          <div class="right_col" role="main">
+            <div class="">
+              <div class="page-title">
+                <div class="title_left">
+                </div>
+
+
               </div>
+              <div class="clearfix"></div>
 
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2> Veiculos
+                        <small>Registos & Updates</small>
+                      </h2>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
 
-            </div>
-            <div class="clearfix"></div>
+                      <form id="veiculos" method="post" enctype="multipart/form-data">
 
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2> Veiculos
-                      <small>Registos & Updates</small>
-                    </h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+                        <span class="section">Informação sobre Veiculos</span>
 
-                    <form action="/veiculos/<%= (isNew) ? 'createveiculos' : veiculos.matricula %>" method="post" class="form-horizontal form-label-left"
-                      novalidate>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="marca" placeholder="Marca do Veiculo"
+                              name="marca" value="<%= veiculos.marca %>" required="required" type="text">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="modelo" placeholder="Modelo do Veiculo"
+                              name="modelo" value="<%= veiculos.modelo %>" required="required" type="text">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ano">Ano
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="ano" placeholder="Ano do Veiculo"
+                              name="ano" value="<%= veiculos.ano %>" required="required" type="text">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matricula">Matricula
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="matricula" placeholder="Colocar a Matricula" name="matricula" value="<%= veiculos.matricula %>" required="required"
+                              class="form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi"> Colocar chassi
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="chassi" placeholder="Insira o chassi" name="chassi" value="<%= veiculos.chassi %>" data-validate-length-range="6"
+                              data-validate-words="2" required="required" class="form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="km">Km
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" name="km" placeholder="Inserir os km" pattern="[0-9]" value="<%= veiculos.km %>" class="optional form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cilindrada"> Cilindrada
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" name="cilindrada" placeholder="Inserir a cilindrada" pattern="[0-9]{9}" value="<%= veiculos.cilindrada %>"
+                              class="optional form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cv"> CV </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" name="cv" placeholder="Inserir os CV" pattern="[0-9]{9}" value="<%= veiculos.cv %>" class="optional form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_compra">Valor da compra
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" name="valor_compra" placeholder="Inserir o valor da compra" pattern="[0-9]" value="<%= veiculos.valor_compra %>"
+                              class="optional form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_venda">Valor da venda
+                            <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" name="valor_venda" placeholder="Inserir o valor da venda" pattern="[0-9]" value="<%= veiculos.valor_venda %>"
+                              class="optional form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+                        <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="despesas">Valor da despesa</label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" name="valor_compra" placeholder="Inserir o valor das despesas" pattern="[0-9]" value="<%= veiculos.despesas %>"
+                              class="optional form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
 
-                      <span class="section">Informação sobre Veiculos</span>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                          <div class="col-md-6 col-md-offset-3">
+                            <button class="btn btn-primary" type="button" onclick="window.open('/veiculos','_self')">Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
 
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="marca" placeholder="Marca do Veiculo" name="marca" value="<%= veiculos.marca %>"  required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="modelo" placeholder="Modelo do Veiculo" name="modelo" value="<%= veiculos.modelo %>"  required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ano">Ano <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="ano" placeholder="Ano do Veiculo" name="ano" value="<%= veiculos.ano %>"  required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matricula">Matricula
-                          <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="matricula" placeholder="Colocar a Matricula" name="matricula" value="<%= veiculos.matricula %>" required="required"
-                            class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi"> Colocar chassi
-                          <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="chassi" placeholder="Insira o chassi" name="chassi" value="<%= veiculos.chassi %>" data-validate-length-range="6"
-                            data-validate-words="2" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="km">Km
-                          <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" name="km" placeholder="Inserir os km" pattern="[0-9]" value="<%= veiculos.km %>" class="optional form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cilindrada"> Cilindrada
-                          <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" name="cilindrada" placeholder="Inserir a cilindrada" pattern="[0-9]{9}" value="<%= veiculos.cilindrada %>"
-                            class="optional form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cv"> CV </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" name="cv" placeholder="Inserir os CV" pattern="[0-9]{9}" value="<%= veiculos.cv %>" class="optional form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_compra">Valor da compra
-                          <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" name="valor_compra" placeholder="Inserir o valor da compra" pattern="[0-9]" value="<%= veiculos.valor_compra %>"
-                            class="optional form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_venda">Valor da venda
-                          <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" name="valor_venda" placeholder="Inserir o valor da venda" pattern="[0-9]" value="<%= veiculos.valor_venda %>"
-                            class="optional form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="despesas">Valor da despesa</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" name="valor_compra" placeholder="Inserir o valor das despesas" pattern="[0-9]" value="<%= veiculos.despesas %>"
-                            class="optional form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
+                            <% if (! isNew) { %>
+                              <button type="button" class="btn btn-danger" onclick="removeRecord()">Apagar</button>
+                              <% } %>
 
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button class="btn btn-primary" type="button" onclick="window.open('/veiculos','_self')">Cancel</button>
-                          <button id="send" type="submit" class="btn btn-success">Submit</button>
-
-                          <% if (! isNew) { %>
-                            <button type="button" class="btn btn-danger" onclick="removeRecord()">Apagar</button>
-                            <% } %>
-
-                              <script type="text/javascript">
-                                function removeRecord() {
-                                  if (confirm('Deseja mesmo remover este Veiculo?')) {
-                                    window.open("<%= '/veiculos/' + veiculos.matricula + '/delete'%>", '_top')
+                                <script type="text/javascript">
+                                  function removeRecord() {
+                                    if (confirm('Deseja mesmo remover este Veiculo?')) {
+                                      window.open("<%= '/veiculos/' + veiculos.matricula + '/delete'%>", '_top')
+                                    }
                                   }
-                                }
-                              </script>
+                                </script>
 
+                          </div>
                         </div>
-                      </div>
-                    </form>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
 
 
 
-      </section>
+        </section>
+      </div>
     </div>
   </div>
-</div>
 
 
 
 
 
 
-        <% include partials/footer%>
+  <% include partials/footer%>
