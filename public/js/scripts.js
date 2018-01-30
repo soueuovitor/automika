@@ -168,14 +168,29 @@
 
 
 
+
+    /*  pace Loader
+    -------------*/
+
+    paceOptions = {
+        elements: true
+    };
+
+
+
+
+})(jQuery);
+
+$(function () {
+
     $("form").submit(function () {
         alert('submitted?');
         switch (this.id) {
 
 
-            case "veiculos-form":
+            case "veiculos":
 
-                var form3 = new FormData($("#veiculos-form")[0]);
+                var form3 = new FormData($("#veiculos")[0]);
 
                 alert('fds');
                 $.ajax({
@@ -202,21 +217,6 @@
     });
 
 
-
-
-    /*  pace Loader
-    -------------*/
-
-    paceOptions = {
-        elements: true
-    };
-
-
-
-
-})(jQuery);
-
-$(function () {
 
 
 });
