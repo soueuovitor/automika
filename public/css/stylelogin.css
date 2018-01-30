@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background: #fff;
+	background-image: url("/public/images/logo.jpg")!important;
   font: 400 12px/1.8 "Open Sans", sans-serif;
   color: #666;
   -webkit-font-smoothing: antialiased;
