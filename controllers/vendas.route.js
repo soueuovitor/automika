@@ -28,3 +28,5 @@ router.get('/createvendas',global.secure('admin'), function(request, response) {
 		})
 	})
 });
+
+module.exports = router;
