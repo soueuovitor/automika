@@ -52,9 +52,11 @@
                 <section id="main-cards">
                     <div class="row">
                         <% for (var c of data) { %>
-                            <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="col-md-4" style="padding-right: 5px;">
                                 <div class="card" style="width: 20rem;">
-                                    <img class="card-img-top" src="./public/bmw.jpg" alt="Card image cap">
+                                    <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
+                                   
+
                                     <div class="card-block">
                                         <h4 class="card-title">
                                             <%= c.marca %>
@@ -124,9 +126,12 @@
                         <div class="w3-content w3-display-container">
                             <% i = 0 %>
                            <% for (i = 0; i < c.numero_fotos; i++ ) { %>
-                            <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
+                            <% if (i == 0) { %>
+                            <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%;">
+                            <% } else { %>
+                             <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
                             <% } %>
-
+                            <% } %>
                             <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
                             <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
                         </div>

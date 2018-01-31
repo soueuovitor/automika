@@ -3,6 +3,7 @@ const router = express.Router();
 const model = require('../models/veiculos.model');
 const fs = require ('fs');
 const formidable = require('formidable');
+const resizeImg = require('resize-img');
 
 
 router.get('/', function(request, response){
@@ -57,24 +58,39 @@ router.post('/create'  ,function (request, response) {
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
 	var i = 0;
+	function sleep(milliseconds) {
+		var start = new Date().getTime();
+		for (var d = 0; d < 1e7; d++) {
+		  if ((new Date().getTime() - start) > milliseconds){
+			break;
+		  }
+		}
+	  }
 	var num_fotos = files.logo.length;
 		for( var c of files.logo){
 			
 			var oldpath = c.path;
+
+
+			var buf = num_fotos;
+
 			var newpath = './public/img/' + fields.chassi  +'-'+ i +'.png';
-	  
-			fs.rename(oldpath, newpath, function (err) {
-
-			});
-	  i++
-	  
-		  
-		}
-
+			
 	
 
-		
-		
+
+		  		
+			resizeImg(fs.readFileSync(oldpath), {width: 128, height: 128}).then(buf => {
+				fs.writeFileSync(newpath, buf);
+			});
+	  
+	  i++
+			buf++;
+
+sleep(1000);
+			
+		}
+
 
 	
 		var data = {
