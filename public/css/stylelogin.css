@@ -11,15 +11,15 @@ body {
 	
   font: 400 12px/1.8 "Open Sans", sans-serif;
   
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased !important;
   background-image: url("/public/images/logo.jpg")!important;
-  background-repeat: no-repeat; 
-  background-position: center;
-  background-attachment: fixed;       
-  webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-repeat: no-repeat !important; 
+  background-position: center!important;
+  background-attachment: fixed !important;       
+  webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
   height: 100%;
   width: 100%; 
 }
