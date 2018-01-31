@@ -188,9 +188,37 @@ $(function () {
         switch (this.id) {
 
 
-            case "veiculos":
+            case "veiculos-atualizacao":
 
-                var form3 = new FormData($("#veiculos")[0]);
+
+        	$.ajax({
+                datatype: "JSON",
+                type: 'POST',
+                url: '/alterPatrocinador',
+                data: $('#veiculos-atualizacao').serialize(),
+                success: function (valido) {
+                    if (valido.status == 200) {
+
+                 alert('rw')
+
+                }
+
+
+            }
+            });
+
+
+
+
+
+
+                return false;
+                break;
+
+
+            case "veiculos-novo":
+
+                var form3 = new FormData($("#veiculos-novo")[0]);
 
                 alert('fds');
                 $.ajax({

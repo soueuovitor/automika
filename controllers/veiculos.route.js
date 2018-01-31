@@ -37,7 +37,7 @@ router.get('/:username', function(request, response) {
 	model.read(request.params.username, function(user) {
 		if (user != undefined) {
 			response.set("Content-Type", "text/html");
-			response.render('clientes-item', {
+			response.render('veiculos-item', {
 				isNew: false,
 				veiculos: user,
 				errors: []
@@ -49,6 +49,20 @@ router.get('/:username', function(request, response) {
 });
 
 
+router.get('/:username', function(request, response) {
+	model.read(request.params.username, function(user) {
+		if (user != undefined) {
+			response.set("Content-Type", "text/html");
+			response.render('veiculos-item', {
+				isNew: false,
+				veiculos: user,
+				errors: []
+			})		
+		}else{
+			response.status(404).end();
+		}
+	})	
+});
 
 
 
