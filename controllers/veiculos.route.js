@@ -49,18 +49,39 @@ router.get('/:username', function(request, response) {
 });
 
 
-router.get('/:username', function(request, response) {
-	model.read(request.params.username, function(user) {
-		if (user != undefined) {
-			response.set("Content-Type", "text/html");
-			response.render('veiculos-item', {
-				isNew: false,
-				veiculos: user,
-				errors: []
-			})		
-		}else{
-			response.status(404).end();
-		}
+router.post('/:matricula', function(request, response) {
+
+	
+	var data = {
+
+		
+		'ano' : request.body.ano,
+
+		'km' : request.body.km,
+
+		'marca' : request.body.marca,
+
+		'modelo' : request.body.modelo,
+
+		'cilindrada' : request.body.cilindrada, 
+
+		'valor_compra': request.body.valor_compra,
+
+		'valor_venda' : request.body.valor_venda,
+
+		'despesas': request.body.despesas,
+
+		'cv' : request.body.cv		
+		
+	};
+
+
+
+		model.update(data, function () {
+			
+			response.redirect('/veiculos')
+			
+	
 	})	
 });
 
