@@ -34,9 +34,12 @@
                     </div>
                     <div class="x_content">
 
-                      <form id="veiculos" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left" novalidate>>
+                      
 <br>
 <br>
+                      <form id="veiculos-<%= (isNew) ? 'novo' : 'atualizacao' %>" method="post" enctype="multipart/form-data"class="form-horizontal form-label-left" novalidate >
+
+                        <span class="section">Informação sobre Veiculos</span>
 
 
                         <input type="file" name="logo"   multiple="multiple">

@@ -4,6 +4,7 @@ const model = require('../models/veiculos.model');
 const fs = require ('fs');
 const formidable = require('formidable');
 const resizeImg = require('resize-img');
+var Jimp = require("jimp");
 
 
 router.get('/', function(request, response){
@@ -36,7 +37,23 @@ router.get('/:username', function(request, response) {
 	model.read(request.params.username, function(user) {
 		if (user != undefined) {
 			response.set("Content-Type", "text/html");
-			response.render('clientes-item', {
+			response.render('veiculos-item', {
+				isNew: false,
+				veiculos: user,
+				errors: []
+			})		
+		}else{
+			response.status(404).end();
+		}
+	})	
+});
+
+
+router.get('/:username', function(request, response) {
+	model.read(request.params.username, function(user) {
+		if (user != undefined) {
+			response.set("Content-Type", "text/html");
+			response.render('veiculos-item', {
 				isNew: false,
 				veiculos: user,
 				errors: []
@@ -49,8 +66,6 @@ router.get('/:username', function(request, response) {
 
 
 
-
-
 router.post('/create'  ,function (request, response) {
 
 	var form = new formidable.IncomingForm();
@@ -58,9 +73,10 @@ router.post('/create'  ,function (request, response) {
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
 	var i = 0;
+	var paths = [];
 	function sleep(milliseconds) {
 		var start = new Date().getTime();
-		for (var d = 0; d < 1e7; d++) {
+		for (var i = 0; i < 1e7; i++) {
 		  if ((new Date().getTime() - start) > milliseconds){
 			break;
 		  }
@@ -71,26 +87,42 @@ router.post('/create'  ,function (request, response) {
 			
 			var oldpath = c.path;
 
-
-			var buf = num_fotos;
-
 			var newpath = './public/img/' + fields.chassi  +'-'+ i +'.png';
-			
-	
+		
+			console	.log(oldpath);
 
 
-		  		
-			resizeImg(fs.readFileSync(oldpath), {width: 128, height: 128}).then(buf => {
-				fs.writeFileSync(newpath, buf);
-			});
-	  
+			console.log(newpath);
+
+		pics(oldpath,newpath);
 	  i++
-			buf++;
 
-sleep(1000);
-			
+
+
+		  
 		}
 
+	
+
+		function pics(oldpath, newpath){
+
+
+			Jimp.read(oldpath, function (err, lenna) {
+		
+
+				
+				if (err) throw err;
+				lenna.resize(1024, 768)            // resize 
+					 .quality(100)               
+					               
+					 .write(newpath); // save 
+			});
+			
+
+
+
+
+		}
 
 	
 		var data = {
