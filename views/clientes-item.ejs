@@ -57,48 +57,37 @@
                         <form action="/clientes/<%= (isNew) ? 'createclientes' : clientes.idclientes %>" method="post" class="form-horizontal form-label-left"
                           novalidate>
           
-                          <span class="section">Informação sobre Clientes</span>
-          
+<br>
+<br>
                           <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome
-                              <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="nome" placeholder="Nome do Cliente"
-                                name="nome" value="<%= clientes.nome %>" required="required" type="text">
+                              <input class="form-control col-md-6 col-md-6 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="nome" placeholder="Nome do Cliente" name="nome" value="<%= clientes.nome %>" required="required" type="text">
                             </div>
                           </div>
                           <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email
-                              <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="email" id="email" placeholder="Email" name="email" value="<%= clientes.email %>" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="email" id="email" placeholder="Email" name="email" value="<%= clientes.email %>" required="required" class="form-control col-md-6 col-md-6 col-xs-12">
                             </div>
                           </div>
                           <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="morada">Morada
-                              <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="morada">Morada<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <input type="text" id="morada" placeholder="Insira a Morada" name="morada" value="<%= clientes.morada %>" data-validate-length-range="6"
-                                data-validate-words="2" required="required" class="form-control col-md-7 col-xs-12">
+                                data-validate-words="2" required="required" class="form-control col-md-6 col-md-6 col-xs-12">
                             </div>
                           </div>
                           <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telemovel">Telemovel
-                              <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telemovel">Telemovel<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" name="telemovel" placeholder="Telemovel" pattern="[0-9]{9}" value="<%= clientes.telemovel %>" class="optional form-control col-md-7 col-xs-12">
+                              <input type="text" name="telemovel" placeholder="Telemovel" pattern="[0-9]{9}" value="<%= clientes.telemovel %>" class="optional form-control col-md-6 col-md-6 col-xs-12">
                             </div>
                           </div>
                           <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif">NIF
-                              <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif">NIF<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" name="nif" placeholder="NIF" pattern="[0-9]{9}" value="<%= clientes.nif %>" class="optional form-control col-md-7 col-xs-12">
+                              <input type="text" name="nif" placeholder="NIF" pattern="[0-9]{9}" value="<%= clientes.nif %>" class="optional form-control col-md-6 col-md-6 col-xs-12">
                             </div>
                           </div>
           
