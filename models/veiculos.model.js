@@ -15,6 +15,14 @@ module.exports = {
 			callback(rows);
 		});
 	},
+	read(matricula, callback) {
+		var sql = "SELECT * from veiculos where matricula=?";
+		global.connection.query(sql, [matricula], function (error, rows, fields) {
+			if (error) throw error;
+			callback(rows[0]);
+		});
+	},
+
 
 	create(data, callback) {
 		var sql = "INSERT INTO veiculos (matricula, chassi, marca , km, cilindrada, cv, valor_compra, valor_venda, despesas, ativo, modelo , ano, numero_fotos) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -25,6 +33,19 @@ module.exports = {
 				callback(rows[0]);
 			});
 	},
+
+
+	update(data, callback) {
+		var sql = "UPDATE veiculos SET  marca=? , km=?, cilindrada=?, cv=?, valor_compra=?, valor_venda=?, despesas=?, ativo=?, modelo=? , ano=?";
+		global.connection.query(
+			sql, [ data.marca, data.km, data.cilindrada, data.cv, data.valor_compra, data.valor_venda, data.despesas, 1 , data.modelo, data.ano],
+			function (error, rows, fields) {
+				if (error) throw error;
+				callback(rows[0]);
+			});
+	},
+
+
 
 
 

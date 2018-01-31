@@ -1,29 +1,18 @@
 <% include partials/header%>
-
-
-
-
-  <div class="content-wrap">
+<div class="content-wrap">
     <div class="main">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-8 p-r-0 title-margin-right">
             <div class="page-header">
               <div class="page-title">
-                <h1>Listagem
-                  <span>dos Clientes</span>
-                </h1>
+
               </div>
             </div>
           </div>
         </div>
 
-
         <section id="main-content">
-
-
-
-
 
 
           <div class="right_col" role="main">
@@ -31,8 +20,6 @@
               <div class="page-title">
                 <div class="title_left">
                 </div>
-
-
               </div>
               <div class="clearfix"></div>
 
@@ -40,105 +27,101 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2> Veiculos
+                      <h1> Veiculos
                         <small>Registos & Updates</small>
-                      </h2>
+                      </h1>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
-                      <form id="veiculos" method="post" enctype="multipart/form-data">
+                      
+<br>
 
-                        <span class="section">Informação sobre Veiculos</span>
+                      <form id="veiculos-<%= (isNew) ? 'novo' : 'atualizacao' %>" method="post" enctype="multipart/form-data"class="form-horizontal form-label-left" novalidate >
+
 
 
                         <input type="file" name="logo"   multiple="multiple">
+
+<br>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="marca" placeholder="Marca do Veiculo"
-                              name="marca" value="<%= veiculos.marca %>" required="required" type="text">
+                            <input class="form-control col-md-6 col-md-6 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="marca" placeholder="Marca do Veiculo"name="marca" value="<%= veiculos.marca %>" required="required" type="text">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="modelo" placeholder="Modelo do Veiculo"
                               name="modelo" value="<%= veiculos.modelo %>" required="required" type="text">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ano">Ano
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ano">Ano<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="ano" placeholder="Ano do Veiculo"
                               name="ano" value="<%= veiculos.ano %>" required="required" type="text">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matricula">Matricula
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matricula">Matricula<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="matricula" placeholder="Colocar a Matricula" name="matricula" value="<%= veiculos.matricula %>" required="required"
                               class="form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi"> Colocar chassi
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi"> Colocar chassi<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="chassi" placeholder="Insira o chassi" name="chassi" value="<%= veiculos.chassi %>" data-validate-length-range="6"
                               data-validate-words="2" required="required" class="form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="km">Km
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="km">Km<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number" name="km" placeholder="Inserir os km" pattern="[0-9]" value="<%= veiculos.km %>" class="optional form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cilindrada"> Cilindrada
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cilindrada"> Cilindrada<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number" name="cilindrada" placeholder="Inserir a cilindrada" pattern="[0-9]{9}" value="<%= veiculos.cilindrada %>"
                               class="optional form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cv"> CV </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number" name="cv" placeholder="Inserir os CV" pattern="[0-9]{9}" value="<%= veiculos.cv %>" class="optional form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_compra">Valor da compra
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_compra">Valor da compra<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number" name="valor_compra" placeholder="Inserir o valor da compra" pattern="[0-9]" value="<%= veiculos.valor_compra %>"
                               class="optional form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_venda">Valor da venda
-                            <span class="required">*</span>
-                          </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor_venda">Valor da venda<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number" name="valor_venda" placeholder="Inserir o valor da venda" pattern="[0-9]" value="<%= veiculos.valor_venda %>"
                               class="optional form-control col-md-7 col-xs-12">
                           </div>
                         </div>
+
                         <div class="item form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="despesas">Valor da despesa</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
