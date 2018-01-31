@@ -58,28 +58,21 @@
                           novalidate>
           
                           <span class="section"></span>
-       
-                        
+                          <br>
                           <select class="form-control" id="nome" name="nome">
                             <option>Selecione um Cliente</option>
                             <% for (var c of clientes) { %>
                               <option value="<%= c.nome %>" <%= c.nome %>><%= c.nome %></option>
                             <% } %>
                           </select>
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
+                            <br>
+                          <select class="form-control" id="nome" name="nome">
+                            <option>Selecione um Veiculo</option>
+                            <% for (var v of veiculos) { %>
+                              <option value="<%= v.matricula %>" <%= v.matricula %>><%= v.matricula %></option>
+                            <% } %>
+                          </select>
+                          <br>
                           <div class="ln_solid"></div>
                           <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
