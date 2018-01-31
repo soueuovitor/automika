@@ -57,17 +57,14 @@
                         <form action="/clientes/<%= (isNew) ? 'createclientes' : clientes.idclientes %>" method="post" class="form-horizontal form-label-left"
                           novalidate>
           
-                          <span class="section">Informação sobre Clientes</span>
-          
-                          
-
-
+<br>
+<br>
                           <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <input class="form-control col-md-6 col-md-6 col-xs-12" data-validate-length-range="6" data-validate-words="2" id="nome" placeholder="Nome do Cliente" name="nome" value="<%= clientes.nome %>" required="required" type="text">
                             </div>
-                          </iv>
+                          </div>
                           <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
