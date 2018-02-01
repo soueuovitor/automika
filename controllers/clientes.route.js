@@ -14,8 +14,6 @@ router.get('/' ,global.secure('admin'), function(request, response){
 		
 		clientes : clientes
 
-
-
 	})
 })
 });

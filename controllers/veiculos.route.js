@@ -33,22 +33,6 @@ router.get('/create', function(request, response) {
 
 
 
-router.get('/:username', function(request, response) {
-	model.read(request.params.username, function(user) {
-		if (user != undefined) {
-			response.set("Content-Type", "text/html");
-			response.render('veiculos-item', {
-				isNew: false,
-				veiculos: user,
-				errors: []
-			})		
-		}else{
-			response.status(404).end();
-		}
-	})	
-});
-
-
 router.post('/:matricula', function(request, response) {
 
 	
@@ -75,13 +59,29 @@ router.post('/:matricula', function(request, response) {
 		
 	};
 
-
+	console.log('shit0');
 
 		model.update(data, function () {
 			
-			response.redirect('/veiculos')
+			response.redirect('veiculos')
 			
 	
+	})	
+});
+
+
+router.get('/:username', function(request, response) {
+	model.read(request.params.username, function(user) {
+		if (user != undefined) {
+			response.set("Content-Type", "text/html");
+			response.render('veiculos-item', {
+				isNew: false,
+				veiculos: user,
+				errors: []
+			})		
+		}else{
+			response.status(404).end();
+		}
 	})	
 });
 

@@ -175,36 +175,25 @@
     paceOptions = {
         elements: true
     };
-
-
-
-
-})(jQuery);
-
-$(function () {
-
+    
     $("form").submit(function () {
-        alert('submitted?');
+      
         switch (this.id) {
 
 
-            case "veiculos-atualizacao":
+            case "atualizar-veiculo":
+
 
 
         	$.ajax({
                 datatype: "JSON",
                 type: 'POST',
-                url: '/alterPatrocinador',
-                data: $('#veiculos-atualizacao').serialize(),
-                success: function (valido) {
-                    if (valido.status == 200) {
-
-                 alert('rw')
-
-                }
+                url: '/veiculos/atualizar',
+                data: $('#atualizar-veiculo').serialize(),
+                success: function () {}
 
 
-            }
+       
             });
 
 
@@ -247,7 +236,14 @@ $(function () {
 
 
 
-});
+
+})(jQuery);
+
+
+
+
+
+
 
 
 
