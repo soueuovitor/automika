@@ -43,17 +43,17 @@ router.get('/:username' ,global.secure('admin'), function(request, response) {
 	})	
 });
 
-router.post('/create', function(request, response) {
+router.post('/createclientes', function(request, response) {
 		var data = {
 			'nome': request.body.nome,
 			'morada': request.body.morada,
 			'telemovel': request.body.telemovel,
 			'email': request.body.email,
 			'nif': request.body.nif
-			
+			  
 		};
 		model.create(data, function(){
-			response.redirect('/create-list');
+			response.redirect('/clientes');
 
 		});
 }); 
