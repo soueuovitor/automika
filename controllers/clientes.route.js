@@ -57,5 +57,26 @@ router.post('/createclientes', function(request, response) {
 
 		});
 }); 
+router.post('/update/:idclientes', function(request, response) {
+	var data = {
+		'nome': request.body.nome,
+		'morada': request.body.morada,
+		'telemovel': request.body.telemovel,
+		'email': request.body.email,
+		'nif': request.body.nif,
+		'idclientes': request.params.idclientes
+		  
+	};
+	model.update(data, function(){
+		response.redirect('/clientes');
+
+	});
+}); 
+router.get('/:idclientes/delete',  function(request, response){
+	model.remove(request.params.idclientes, function() {
+		response.redirect('/clientes');
+	})	
+});
+
 
 module.exports = router;

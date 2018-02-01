@@ -36,11 +36,19 @@ module.exports = {
 			});
 	},
 
-	remove(username, callback) {
-		var sql = "DELETE from clientes WHERE username=?";
-		global.connection.query(sql, [username], function (error, rows, fields) {
+	remove(data, callback) {
+		var sql = "DELETE from clientes WHERE idclientes=?";
+		global.connection.query(sql, [data], function (error, rows, fields) {
 			if (error) throw error;
 			callback(rows);
+		});
+	},
+	update( data, callback) {
+		var sql = "UPDATE clientes SET nome=?, morada=?, telemovel=?, email=?, nif=?  WHERE idclientes=?"; 
+		global.connection.query(
+			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.idclientes], function(error, rows, fields) {
+			if (error) throw error;
+			callback(rows[0]);			
 		});
 	},
 
