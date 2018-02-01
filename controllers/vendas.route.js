@@ -1,6 +1,6 @@
 const model = require('../models/vendas.model');
 const cli = require('../models/clientes.model');
-const vei = require('../models/veiculos.model');
+const vei = require('../models/vendas.model');
 const express = require('express');
 const router = express.Router();
 
@@ -27,6 +27,32 @@ router.get('/createvendas',global.secure('admin'), function(request, response) {
 			})
 		})
 	})
+});
+
+
+
+router.post('/createvendas/nova', function(request, response) {
+
+	console.log(request.body.comprador)
+	var data = {
+
+		
+		'comprador' : request.body.comprador,
+
+
+
+		'matricula' : request.body.matricula		
+		
+	};
+
+	console.log('shit0');
+
+		model.create(data, function () {
+			
+			response.redirect('/vendas')
+			
+	
+	})	
 });
 
 
