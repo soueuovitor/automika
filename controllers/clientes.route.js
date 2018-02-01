@@ -24,7 +24,7 @@ router.get('/create' ,global.secure('admin'), function(request, response) {
 	response.set("Content-Type", "text/html");
 	response.render('clientes-item', {
 		isNew: true,
-		clientes: {},
+		clientes: {}, 
 		errors: []
 	})
 });
@@ -44,5 +44,20 @@ router.get('/:username' ,global.secure('admin'), function(request, response) {
 		}
 	})	
 });
+
+router.post('/create', function(request, response) {
+		var data = {
+			'nome': request.body.nome,
+			'morada': request.body.morada,
+			'telemovel': request.body.telemovel,
+			'email': request.body.email,
+			'nif': request.body.nif
+			
+		};
+		model.create(data, function(){
+			response.redirect('/create-list');
+
+		});
+}); 
 
 module.exports = router;
