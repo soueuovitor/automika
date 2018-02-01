@@ -9,7 +9,7 @@ module.exports = {
 	},
 
 	dropdown(callback) {
-		var sql = 'SELECT nome from clientes';
+		var sql = 'SELECT nome, nif from clientes';
 		global.connection.query(sql, function(error, rows, fields){
 			if (error) throw error;
 			callback(rows);

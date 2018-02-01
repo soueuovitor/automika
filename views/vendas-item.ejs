@@ -54,22 +54,24 @@
                       </div>
                       <div class="x_content">
           
-                        <form action="/clientes/<%= (isNew) ? 'createclientes' : clientes.idclientes %>" method="post" class="form-horizontal form-label-left"
+                        <form action="/vendas/createvendas/nova" method="post" class="form-horizontal form-label-left"
                           novalidate>
           
                           <span class="section"></span>
                           <br>
-                          <select class="form-control" id="nome" name="nome">
+                          <select class="form-control" id="nome" name="comprador">
                             <option>Selecione um Cliente</option>
                             <% for (var c of clientes) { %>
-                              <option value="<%= c.nome %>" <%= c.nome %>><%= c.nome %></option>
+                              <option value="<%= c.nif %>" > <%= c.nome %></option>
+                              
                             <% } %>
+                            
                           </select>
                             <br>
-                          <select class="form-control" id="nome" name="nome">
+                          <select class="form-control" id="matricula" name="matricula">
                             <option>Selecione um Veiculo</option>
                             <% for (var v of veiculos) { %>
-                              <option value="<%= v.matricula %>" <%= v.matricula %>><%= v.matricula %></option>
+                              <option value="<%= v.matricula %>" ><%= v.matricula %></option>
                             <% } %>
                           </select>
                           <br>
