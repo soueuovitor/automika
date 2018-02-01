@@ -45,10 +45,9 @@ router.post('/createvendas/nova', function(request, response) {
 		
 	};
 
-	console.log('shit0');
 
 		model.create(data, function () {
-			
+			model.updatecarro(data, function(){});
 			response.redirect('/vendas')
 			
 	

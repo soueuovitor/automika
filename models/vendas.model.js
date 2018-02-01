@@ -37,10 +37,10 @@ module.exports = {
 	},
 
 
-	update(data, callback) {
-		var sql = "UPDATE veiculos SET  marca=? , km=?, cilindrada=?, cv=?, valor_compra=?, valor_venda=?, despesas=?, ativo=?, modelo=? , ano=? WHERE matricula=?";
+	updatecarro(data, callback) {
+		var sql = "UPDATE veiculos SET  ativo=? WHERE matricula=?";
 		global.connection.query(
-			sql, [ data.marca, data.km, data.cilindrada, data.cv, data.valor_compra, data.valor_venda, data.despesas, 1 , data.modelo, data.ano, data.matricula],
+			sql, [ 0, data.matricula],
 			function (error, rows, fields) {
 				if (error) throw error;
 				callback(rows[0]);
