@@ -20,6 +20,8 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
+            <div id="modal">
+            <div class="modalconent">
             <form action="/" method="post" style="text-align: center; margin-top: 130px;">
               <h2 style="font-size: 40px">Login</h2>
 
@@ -46,9 +48,19 @@
               </div>
               <div class="clearfix"></div>
             </form>
+          </div>
+        </div>
           </section>
         </div>
       </div>
     </div>
+    
+
+  <script>
+  window.onload = function () {
+    document.getElementById('button').onclick = function () {
+        document.getElementById('modal').style.display = "none"
+    };
+};</script>
   </body>
 </html>

@@ -27,21 +27,14 @@ module.exports = {
 
 
 	create(data, callback) {
-		var sql = "INSERT INTO clientes (password_part, nome_participante, tel_participante, username_part, email_part) VALUES (?,?,?,?,?)";
+		var sql = "INSERT INTO clientes (nome, morada, telemovel, email, nif) VALUES (?,?,?,?,?)";
 		global.connection.query(
-			sql, [data.password, data.name, data.numero, data.username, data.email],
+			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif],
 			function (error, rows, fields) {
 				if (error) throw error;
 				callback(rows[0]);
 			});
 	},
-
-
-
-
-
-
-
 
 	remove(username, callback) {
 		var sql = "DELETE from clientes WHERE username=?";
