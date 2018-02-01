@@ -176,63 +176,6 @@
         elements: true
     };
     
-    $("form").submit(function () {
-      
-        switch (this.id) {
-
-
-            case "atualizar-veiculo":
-
-
-
-        	$.ajax({
-                datatype: "JSON",
-                type: 'POST',
-                url: '/veiculos/atualizar',
-                data: $('#atualizar-veiculo').serialize(),
-                success: function () {}
-
-
-       
-            });
-
-
-
-
-
-
-                return false;
-                break;
-
-
-            case "veiculos-novo":
-
-                var form3 = new FormData($("#veiculos-novo")[0]);
-
-                alert('fds');
-                $.ajax({
-                    url: '/veiculos/create',
-                    method: "POST",
-                    dataType: 'json',
-                    data: form3,
-                    processData: false,
-                    contentType: false,
-                    success: function (result){}
-                });
-
-
-
-
-
-                return false;
-                break;
-
-            default:
-                return false;
-        }
-        return false;
-    });
-
 
 
 

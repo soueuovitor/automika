@@ -33,7 +33,7 @@ router.get('/create', function(request, response) {
 
 
 
-router.post('/:matricula', function(request, response) {
+router.post('/update/:matricula', function(request, response) {
 
 	
 	var data = {
@@ -63,7 +63,7 @@ router.post('/:matricula', function(request, response) {
 
 		model.update(data, function () {
 			
-			response.redirect('veiculos')
+			response.redirect('/veiculos')
 			
 	
 	})	
