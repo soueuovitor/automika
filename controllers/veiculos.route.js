@@ -43,6 +43,8 @@ router.post('/update/:matricula', function(request, response) {
 
 		'km' : request.body.km,
 
+		'matricula' :request.params.matricula ,
+
 		'marca' : request.body.marca,
 
 		'modelo' : request.body.modelo,
@@ -94,7 +96,7 @@ router.post('/create'  ,function (request, response) {
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
 	var i = 0;
-	var paths = [];
+	var paths = [];s
 	function sleep(milliseconds) {
 		var start = new Date().getTime();
 		for (var i = 0; i < 1e7; i++) {

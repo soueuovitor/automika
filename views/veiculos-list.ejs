@@ -3,14 +3,20 @@
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
+             
                 <div class="row">
+                    
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
                                 <h1>Listagem
                                     <span>dos Veiculos</span>
                                 </h1>
-
+                                <select id="choose" class="chooseStyle" style="float:left;">
+                                        <option value="main-cards" selected>Cartão</option>
+                                        <option value="main-list">Lista</option>
+                    
+                                    </select>
                             </div>
 
                         </div>
@@ -18,11 +24,7 @@
 
                 </div>
 
-                <select id="choose" class="chooseStyle" style="float:right;">
-                    <option value="main-cards" selected>Cartão</option>
-                    <option value="main-list">Lista</option>
-
-                </select>
+     
                 <!-- /# row -->
 
 
@@ -52,8 +54,8 @@
                 <section id="main-cards">
                     <div class="row">
                         <% for (var c of data) { %>
-                            <div class="col-md-4" style="padding-right: 5px;">
-                                <div class="card" style="width: 20rem;">
+                            <div class="col-md-3" style="padding-right: 5px;">
+                                <div class="card" >
                                     <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
                                    
 
