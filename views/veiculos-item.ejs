@@ -2,15 +2,7 @@
   <div class="content-wrap">
     <div class="main">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8 p-r-0 title-margin-right">
-            <div class="page-header">
-              <div class="page-title">
-
-              </div>
-            </div>
-          </div>
-        </div>
+        <br>
 
         <section id="main-content">
 
@@ -28,7 +20,12 @@
                   <div class="x_panel">
                     <div class="x_title">
                       <h1> Veiculos
-                        <small>Registos & Updates</small>
+                          <% if (! isNew) { %>
+                        
+                        <small>Update</small>
+                        <% }else{ %>
+                          <small>Registos</small>
+                            <% } %>
                       </h1>
                       <div class="clearfix"></div>
                     </div>
