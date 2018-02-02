@@ -98,10 +98,10 @@
 
                 <section id="main-cards">
 
-                    <div id="nao_vendidos" class="row">
+                    <div id="nao_vendidos" class="row" >
                         <% for (var c of data) { %>
                             <% if (c.ativo == 1) { %>
-                                <div class="col-md-3" style="padding-right: 5px;">
+                                <div class="col-md-3" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
                                     <div class="card">
                                         <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
 
@@ -128,10 +128,7 @@
                                                 <%= c.valor_venda %>
                                             </h4>
                                         </div>
-                                        <li style="width:50%;">
-                                            <span data-toggle="modal" data-target="#<%= c.id %>">
-                                                <i class="fa fa-search"></i>More info</span>
-                                        </li>
+                                   
                                     </div>
                                 </div>
 
@@ -228,7 +225,7 @@
                     <div id="vendidos" class="row" style="display: none">
                         <% for (var c of data) { %>
                             <% if (c.ativo == 0) { %>
-                                <div class="col-md-3" style="padding-right: 5px;">
+                                <div class="col-md-3" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
                                     <div class="card">
                                         <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
 
@@ -255,10 +252,7 @@
                                                 <%= c.valor_venda %>
                                             </h4>
                                         </div>
-                                        <li style="width:50%;">
-                                            <span data-toggle="modal" data-target="#<%= c.id %>">
-                                                <i class="fa fa-search"></i>More info</span>
-                                        </li>
+                              
                                     </div>
                                 </div>
 
