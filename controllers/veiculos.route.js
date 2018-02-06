@@ -61,7 +61,6 @@ router.post('/update/:matricula', function(request, response) {
 		
 	};
 
-	console.log('shit0');
 
 		model.update(data, function () {
 			
@@ -97,14 +96,8 @@ router.post('/create'  ,function (request, response) {
     form.parse(request, function (err, fields, files) {
 	var i = 0;
 	var paths = [];s
-	function sleep(milliseconds) {
-		var start = new Date().getTime();
-		for (var i = 0; i < 1e7; i++) {
-		  if ((new Date().getTime() - start) > milliseconds){
-			break;
-		  }
-		}
-	  }
+
+	
 	var num_fotos = files.logo.length;
 		for( var c of files.logo){
 			
@@ -112,11 +105,6 @@ router.post('/create'  ,function (request, response) {
 
 			var newpath = './public/img/' + fields.chassi  +'-'+ i +'.png';
 		
-			console	.log(oldpath);
-
-
-			console.log(newpath);
-
 		pics(oldpath,newpath);
 	  i++
 
