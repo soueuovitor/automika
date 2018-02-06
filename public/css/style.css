@@ -61,6 +61,24 @@
 42. responsive
 
 */
+/* custom fields */
+input[type=date] {
+ 
+
+  font-size: 18px;
+
+  border-color: #e7e7e7;
+  background-color: #fff;
+  outline: none;
+  border: 0;
+  border-radius: 0px;
+  padding: 0 3px;
+
+  
+ 
+}
+
+
 /*    Font Variable
 ----------------------*/
 /*    Color Variable

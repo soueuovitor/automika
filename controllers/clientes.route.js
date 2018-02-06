@@ -101,7 +101,8 @@ router.post('/createclientes', function(request, response) {
 			'email': fields.email,
 			'nif': fields.nif,
 			'cc': fields.cc,
-			'num_fotos_cliente':num_fotos_cliente
+			'num_fotos_cliente':num_fotos_cliente,
+			'data_nascimento': fields.data_nascimento
 			  
 		};
 		model.create(data, function(){

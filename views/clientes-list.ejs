@@ -22,24 +22,24 @@
                               <tr>
                                 <th>Nome</th>
                                 <th>Email</th>
-                                <th>Morada</th>
+                                
                                 <th>telemovel</th>
                                 <th>NIF</th>
-                                <th>Cartão de Cidadão</th>
-                                <th>Fotos</th>
+                               
+                
                                 
                               </tr>
                             </thead>
                             <tbody>
                               <% for (var c of clientes ) { %>
-                                <tr>
-                                  <td><a href="/clientes/<%= c.idclientes %>"><%= c.nome %></a></td>
+                                <tr data-toggle="modal"data-target="#<%= c.idclientes %>">
+                                  <td><%= c.nome %></td>
                                   <td><%= c.email %></td>
-                                  <td><%= c.morada %></td>
+                                 
                                   <td><%= c.telemovel %></td>
                                   <td><%= c.nif %></td>
-                                  <td><%= c.cc %></td>
-                                  <td><span data-toggle="modal"data-target="#<%= c.idclientes %>" ><i class="ti-camera "></i></span></td>
+                                
+                                
                                 </tr>
                                 
 
@@ -91,18 +91,46 @@ x<%= c.idclientes %> [slideIndex<%= c.idclientes %> - 1].style.display = "block"
 <div class="modal-body">
 
 
- <div class="w3-content w3-display-container">
+ <div class="w3-content w3-display-container" >
      <% i = 0 %>
          <% for (i = 0; i < c.num_fotos_cliente; i++ ) { %>
              <% if (i == 0) { %>
-                 <img class="<%= c.idclientes %>" src="/public/img/<%= c.nif %>-<%= i %>.png" style="widclientesth:100%;">
+                 <img class="<%= c.idclientes %>" src="/public/img/<%= c.nif %>-<%= i %>.png" style="widclientesth:100%; max-width: 100%; max-height: 100%;">
                  <% } else { %>
-                     <img class="<%= c.idclientes %>" src="/public/img/<%= c.nif %>-<%= i %>.png" style="widclientesth:100%; display:none;">
+                     <img class="<%= c.idclientes %>" src="/public/img/<%= c.nif %>-<%= i %>.png" style="widclientesth:100%; display:none;max-width: 100%; max-height: 100%;">
                      <% } %>
                          <% } %>
                              <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.idclientes %>(-1)">&#10094;</button>
                              <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.idclientes %>(1)">&#10095;</button>
  </div>
+</br>
+<div class="card-block">
+    <h4 >
+        <%= c.nome %>
+    </h4>
+</div>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+    Email: <%= c.email %></li>
+    <li class="list-group-item">
+    Telemovel: <%= c.telemovel %></li>
+    <li class="list-group-item">
+    Morada: <%= c.morada %></li>
+    <li class="list-group-item">
+    Nif: <%= c.nif %> </li>
+    <li class="list-group-item">
+    Cartão de Cidadão: <%= c.cc %> </li>
+    <li class="list-group-item">
+    Data de Nascimento: <%= c.data_nascimento.toLocaleDateString('en-US') %> </li>
+    <button class="btn btn-primary" type="button" onclick="window.open('/clientes','_self')">Editar</button>
+    
+</ul>
+
+<li style="width:50%;">
+    <span data-toggle="modal" data-target="#<%= c.id %>">
+
+</li>
+
 </div>
 </div>
 </div>

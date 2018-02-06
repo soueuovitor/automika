@@ -62,9 +62,15 @@
                             </div>
                           </div>
                           <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif">Cartão de Cidadão<span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cc">Cartão de Cidadão<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <input type="text" name="cc" placeholder="Cartão de Cidadão" value="<%= clientes.cc %>" class="optional form-control col-md-6 col-md-6 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nascimento">Cartão de Cidadão<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="date" name="data_nascimento" placeholder="" class="optional form-control col-md-6 col-md-6 col-xs-12 " value="<%= clientes.data_nascimento %>" >
                             </div>
                           </div>
           
@@ -116,11 +122,17 @@
                               <input type="text" name="nif" placeholder="NIF" pattern="[0-9]{9}" value="<%= clientes.nif %>" class="optional form-control col-md-6 col-md-6 col-xs-12">
                             </div>
                           </div> <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif">Cartão de Cidadão<span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cc">Cartão de Cidadão<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <input type="text" name="cc" placeholder="Cartão de Cidadão" value="<%= clientes.cc %>" class="optional form-control col-md-6 col-md-6 col-xs-12">
                             </div>
                           </div>
+                        </div> <div class="item form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif">Data de Nascimento<span class="required">*</span></label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="cc" placeholder="Cartão de Cidadão" value="<%= clientes.cc %>" class="optional form-control col-md-6 col-md-6 col-xs-12">
+                          </div>
+                        </div>
           
                           <div class="ln_solid"></div>
                           <div class="form-group">
