@@ -9,3 +9,5 @@
 - Tratar de verificações nos forms
 
 - segurança
+
+- Verificar n cc na BD

@@ -49,7 +49,8 @@ router.post('/createclientes', function(request, response) {
 			'morada': request.body.morada,
 			'telemovel': request.body.telemovel,
 			'email': request.body.email,
-			'nif': request.body.nif
+			'nif': request.body.nif,
+			'cc': request.body.cc
 			  
 		};
 		model.create(data, function(){

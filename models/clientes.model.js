@@ -27,9 +27,9 @@ module.exports = {
 
 
 	create(data, callback) {
-		var sql = "INSERT INTO clientes (nome, morada, telemovel, email, nif) VALUES (?,?,?,?,?)";
+		var sql = "INSERT INTO clientes (nome, morada, telemovel, email, nif, cc) VALUES (?,?,?,?,?,?)";
 		global.connection.query(
-			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif],
+			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.cc],
 			function (error, rows, fields) {
 				if (error) throw error;
 				callback(rows[0]);
@@ -44,9 +44,9 @@ module.exports = {
 		});
 	},
 	update( data, callback) {
-		var sql = "UPDATE clientes SET nome=?, morada=?, telemovel=?, email=?, nif=?  WHERE idclientes=?"; 
+		var sql = "UPDATE clientes SET nome=?, morada=?, telemovel=?, email=?, nif=?, cc=?  WHERE idclientes=?"; 
 		global.connection.query(
-			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.idclientes], function(error, rows, fields) {
+			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.cc, data.idclientes], function(error, rows, fields) {
 			if (error) throw error;
 			callback(rows[0]);			
 		});
