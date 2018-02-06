@@ -26,6 +26,7 @@
                                 <th>telemovel</th>
                                 <th>NIF</th>
                                 <th>Cartão de Cidadão</th>
+                                <th>Fotos</th>
                                 
                               </tr>
                             </thead>
@@ -38,11 +39,15 @@
                                   <td><%= c.telemovel %></td>
                                   <td><%= c.nif %></td>
                                   <td><%= c.cc %></td>
+                                  <td><span data-toggle="modal"data-target="#<%= c.idclientes %>" ><i class="ti-camera "></i></span></td>
                                 </tr>
+                                
+
                                 <%} %>
+                                
                             </tbody>
                           </table>
-                          
+                           
                         </div>
                       </div>
                     </div>
@@ -53,6 +58,55 @@
 </div>
 </div>
 
+<% for (var c of clientes ) { %>
+<script>
+  var slideIndex<%= c.idclientes %> = 1;
+showDivs<%= c.id %> (slideIndex<%= c.idclientes %>.style.display = "block");
 
+function plusDivs<%= c.idclientes %> (n<%= c.idclientes %>) {
+showDivs<%= c.idclientes %> (slideIndex<%= c.idclientes %> += n<%= c.idclientes %>);
+}
+
+function showDivs<%= c.idclientes %> (n<%= c.idclientes %>) {
+var i<%= c.idclientes %>;
+var x<%= c.idclientes %> = document.getElementsByClassName("<%= c.idclientes %>");
+
+if (n<%= c.idclientes %> > x<%= c.idclientes %>.length) {
+slideIndex<%= c.idclientes %> = 1
+
+}
+if (n<%= c.idclientes %> < 1) {
+slideIndex<%= c.idclientes %> = x<%= c.idclientes %>.length
+}
+for (i<%= c.idclientes %> = 0; i<%= c.idclientes %> < x<%= c.idclientes %>.length; i<%= c.idclientes %>++) {
+x<%= c.idclientes %> [i<%= c.idclientes %>].style.display = "none";
+}
+x<%= c.idclientes %> [slideIndex<%= c.idclientes %> - 1].style.display = "block";
+}
+</script>
+<div class="modal fade product_view " id="<%= c.idclientes %>">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-body">
+
+
+ <div class="w3-content w3-display-container">
+     <% i = 0 %>
+         <% for (i = 0; i < c.num_fotos_cliente; i++ ) { %>
+             <% if (i == 0) { %>
+                 <img class="<%= c.idclientes %>" src="/public/img/<%= c.nif %>-<%= i %>.png" style="widclientesth:100%;">
+                 <% } else { %>
+                     <img class="<%= c.idclientes %>" src="/public/img/<%= c.nif %>-<%= i %>.png" style="widclientesth:100%; display:none;">
+                     <% } %>
+                         <% } %>
+                             <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.idclientes %>(-1)">&#10094;</button>
+                             <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.idclientes %>(1)">&#10095;</button>
+ </div>
+</div>
+</div>
+</div>
+</div>
+<%} %>
 
 <% include partials/footer %>

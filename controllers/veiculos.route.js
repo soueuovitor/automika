@@ -95,7 +95,7 @@ router.post('/create'  ,function (request, response) {
 	var fields = request.fields;
     form.parse(request, function (err, fields, files) {
 	var i = 0;
-	var paths = [];s
+	var paths = [];
 
 	
 	var num_fotos = files.logo.length;

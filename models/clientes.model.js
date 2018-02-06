@@ -27,9 +27,9 @@ module.exports = {
 
 
 	create(data, callback) {
-		var sql = "INSERT INTO clientes (nome, morada, telemovel, email, nif, cc) VALUES (?,?,?,?,?,?)";
+		var sql = "INSERT INTO clientes (nome, morada, telemovel, email, nif, cc, num_fotos_cliente) VALUES (?,?,?,?,?,?,?)";
 		global.connection.query(
-			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.cc],
+			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.cc, data.num_fotos_cliente],
 			function (error, rows, fields) {
 				if (error) throw error;
 				callback(rows[0]);
