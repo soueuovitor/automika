@@ -118,16 +118,25 @@ $(document).ready(function() {
 
 });
 $(document).ready(function() {
-  $('#example').DataTable( {
-      columnDefs: [ {
-          targets: [ 0 ],
-          orderData: [ 0, 1 ]
-      }, {
-          targets: [ 1 ],
-          orderData: [ 1, 0 ]
-      }, {
-          targets: [ 4 ],
-          orderData: [ 4, 0 ]
-      } ]
+  // Setup - add a text input to each footer cell
+  $('#example tfoot th').each( function () {
+      var title = $(this).text();
+      $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+  } );
+
+  // DataTable
+  var table = $('#example').DataTable();
+
+  // Apply the search
+  $('#Matricula').on( 'keyup', function () {
+    table
+        .columns( 0 )
+        .search( this.value )
+        .draw();
+} );
+  table.columns().every( function () {
+      var that = this;
+
+
   } );
 } );

@@ -179,9 +179,10 @@
     <div class="row">
       <div class="col-md-12 col-sm-6 col-xs-12">
           <div class="x_panel">
-
               <div class="x_content">
-                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <input type="text" id="Matricula">Matricula
+
+                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                       <thead>
                           <tr>
                               <th>Matricula</th>
@@ -195,7 +196,7 @@
                               <th>Despesas</th>
                           </tr>
                       </thead>
-                   
+                  
                       <tbody>
                           <% for (var c of data) { %>
                               <% if (c.ativo == 1) { %>
