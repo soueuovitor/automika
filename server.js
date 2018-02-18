@@ -5,10 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const validator = require('express-validator');
 const engines = require('consolidate');
-var multer = require('multer');
-var upload = multer({
-	dest: '/.public/img/logos/'
-});
+
 var schedule = require('node-schedule');
 var nodemailer = require('nodemailer');
 
@@ -101,13 +98,14 @@ app.use(function(request, response, next){
 });
 
 
+app.use('/main', require('./controllers/main.route'));
 
 app.use('/', require('./controllers/login.route'));
 app.use('/public', express.static('public'));
 app.use('/index', require('./controllers/index.route'));
 app.use('/clientes', require('./controllers/clientes.route'));
 app.use('/veiculos', require('./controllers/veiculos.route'));
-app.use('/logout', require('./controllers/logout.route'));
+app.use('/logout',  require('./controllers/logout.route'));
 app.use('/users', require('./controllers/user.route'));
 app.use('/vendas', require('./controllers/vendas.route'));
 //new
