@@ -130,7 +130,7 @@ $(document).ready(function() {
   // Apply the search
   $('#Matricula').on( 'keyup', function () {
     table
-        .columns( 0 )
+        .columns( 0  )
         .search( this.value )
         .draw();
 } );
