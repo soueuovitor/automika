@@ -32,7 +32,7 @@
 
                 <!-- /# row -->
 
-
+                <input id="test" type="text">test
                 <script>
                     function switchDiv() {
 
@@ -93,23 +93,23 @@
 
                     }
                     window.onload = start;
+
+                    
                 </script>
 
 
                 <section id="main-cards">
 
-                    <div id="nao_vendidos" class="row" >
+                    <div id="nao_vendidos" class="row">
                         <% for (var c of data) { %>
-                            <% if (c.ativo == 1) { %>
+                         <% if (c.ativo ==  1) { %> 
                                 <div class="col-md-3" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
                                     <div class="card">
                                         <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
 
 
                                         <div class="card-block">
-                                            <h4 class="card-title">
-                                                <%= c.marca %>
-                                            </h4>
+                                            <h4 class="card-title"><%=c.marca%></h4>
                                             <p class="card-text">
                                                 <%= c.modelo  %>
                                             </p>
@@ -128,34 +128,34 @@
                                                 <%= c.valor_venda %>
                                             </h4>
                                         </div>
-                                   
+
                                     </div>
                                 </div>
 
 
                                 <script>
-                                               var slideIndex<%= c.id %> = 1;
-                                    showDivs<%= c.id %> (slideIndex<%= c.id %>.style.display = "block");
+                                    var slideIndex <%= c.id %> = 1;
+                                    showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");
 
-                                    function plusDivs<%= c.id %> (n<%= c.id %>) {
-                                        showDivs<%= c.id %> (slideIndex<%= c.id %> += n<%= c.id %>);
+                                    function plusDivs <%= c.id %> (n <%= c.id %>) {
+                                        showDivs <%= c.id %> (slideIndex <%= c.id %> += n <%= c.id %>);
                                     }
 
-                                    function showDivs<%= c.id %> (n<%= c.id %>) {
-                                        var i<%= c.id %>;
-                                        var x<%= c.id %> = document.getElementsByClassName("<%= c.id %>");
+                                    function showDivs <%= c.id %> (n <%= c.id %>) {
+                                        var i <%= c.id %>;
+                                        var x <%= c.id %> = document.getElementsByClassName("<%= c.id %>");
 
-                                        if (n<%= c.id %> > x<%= c.id %>.length) {
-                                            slideIndex<%= c.id %> = 1
+                                        if (n <%= c.id %> > x <%= c.id %>.length) {
+                                            slideIndex <%= c.id %> = 1
 
                                         }
-                                        if (n<%= c.id %> < 1) {
-                                            slideIndex<%= c.id %> = x<%= c.id %>.length
+                                        if (n <%= c.id %> < 1) {
+                                            slideIndex <%= c.id %> = x <%= c.id %>.length
                                         }
-                                        for (i<%= c.id %> = 0; i<%= c.id %> < x<%= c.id %>.length; i<%= c.id %>++) {
-                                            x<%= c.id %> [i<%= c.id %>].style.display = "none";
+                                        for (i <%= c.id %> = 0; i <%= c.id %> < x <%= c.id %>.length; i <%= c.id %>++) {
+                                            x <%= c.id %> [i <%= c.id %>].style.display = "none";
                                         }
-                                        x<%= c.id %> [slideIndex<%= c.id %> - 1].style.display = "block";
+                                        x <%= c.id %> [slideIndex <%= c.id %> - 1].style.display = "block";
                                     }
                                 </script>
 
@@ -231,9 +231,7 @@
 
 
                                         <div class="card-block">
-                                            <h4 class="card-title">
-                                                <%= c.marca %>
-                                            </h4>
+                                            <h4 class="card-title"><%= c.marca %></h4>
                                             <p class="card-text">
                                                 <%= c.modelo  %>
                                             </p>
@@ -252,35 +250,34 @@
                                                 <%= c.valor_venda %>
                                             </h4>
                                         </div>
-                              
+
                                     </div>
                                 </div>
 
 
                                 <script>
+                                    var slideIndex <%= c.id %> = 1;
+                                    showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");
 
-                                    var slideIndex<%= c.id %> = 1;
-                                    showDivs<%= c.id %> (slideIndex<%= c.id %>.style.display = "block");
-
-                                    function plusDivs<%= c.id %> (n<%= c.id %>) {
-                                        showDivs<%= c.id %> (slideIndex<%= c.id %> += n<%= c.id %>);
+                                    function plusDivs <%= c.id %> (n <%= c.id %>) {
+                                        showDivs <%= c.id %> (slideIndex <%= c.id %> += n <%= c.id %>);
                                     }
 
-                                    function showDivs<%= c.id %> (n<%= c.id %>) {
-                                        var i<%= c.id %>;
-                                        var x<%= c.id %> = document.getElementsByClassName("<%= c.id %>");
+                                    function showDivs <%= c.id %> (n <%= c.id %>) {
+                                        var i <%= c.id %>;
+                                        var x <%= c.id %> = document.getElementsByClassName("<%= c.id %>");
 
-                                        if (n<%= c.id %> > x<%= c.id %>.length) {
-                                            slideIndex<%= c.id %> = 1
+                                        if (n <%= c.id %> > x <%= c.id %>.length) {
+                                            slideIndex <%= c.id %> = 1
 
                                         }
-                                        if (n<%= c.id %> < 1) {
-                                            slideIndex<%= c.id %> = x<%= c.id %>.length
+                                        if (n <%= c.id %> < 1) {
+                                            slideIndex <%= c.id %> = x <%= c.id %>.length
                                         }
-                                        for (i<%= c.id %> = 0; i<%= c.id %> < x<%= c.id %>.length; i<%= c.id %>++) {
-                                            x<%= c.id %> [i<%= c.id %>].style.display = "none";
+                                        for (i <%= c.id %> = 0; i <%= c.id %> < x <%= c.id %>.length; i <%= c.id %>++) {
+                                            x <%= c.id %> [i <%= c.id %>].style.display = "none";
                                         }
-                                        x<%= c.id %> [slideIndex<%= c.id %> - 1].style.display = "block";
+                                        x <%= c.id %> [slideIndex <%= c.id %> - 1].style.display = "block";
                                     }
                                 </script>
 
